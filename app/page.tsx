@@ -4,12 +4,9 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyMobileBar } from "@/components/layout/StickyMobileBar";
 import { Hero } from "@/components/sections/Hero";
 import { AboutTrust } from "@/components/sections/AboutTrust";
-import { QuickActions } from "@/components/sections/QuickActions";
 import { Services } from "@/components/sections/Services";
-import { WhyWoodRidge } from "@/components/sections/WhyWoodRidge";
 import { Listings } from "@/components/sections/Listings";
 import { OffersAppraisal } from "@/components/sections/OffersAppraisal";
-import { FAQ } from "@/components/sections/FAQ";
 
 export default function HomePage() {
   return (
@@ -19,13 +16,10 @@ export default function HomePage() {
 
       <main id="main-content" className="site-main">
         <Hero />
-        <QuickActions />
         <AboutTrust />
         <Services />
-        <WhyWoodRidge />
         <Listings />
         <OffersAppraisal />
-        <FAQ />
       </main>
 
       <SiteFooter />
