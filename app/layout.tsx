@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-const dmSans = DM_Sans({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans"
+  variable: "--font-source-sans"
 });
 
-const dmSerif = DM_Serif_Display({
-  weight: "400",
+const libreBaskerville = Libre_Baskerville({
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-serif"
+  variable: "--font-libre-baskerville"
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "WoodRidge Real Estate",
     description:
-      "Your one-stop property solution across Melbourne's west.",
+      "Sales, leasing and property management across Melbourne's west.",
     type: "website",
     locale: "en_AU",
     siteName: "WoodRidge Real Estate",
@@ -67,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU">
-      <body className={dmSans.variable + " " + dmSerif.variable}>
+      <body className={sourceSans.variable + " " + libreBaskerville.variable}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
