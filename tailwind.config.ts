@@ -19,8 +19,8 @@ const config: Config = {
         line: "var(--line)"
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "sans-serif"],
-        serif: ["var(--font-dm-serif)", "serif"]
+        sans: ["var(--font-source-sans)", "sans-serif"],
+        serif: ["var(--font-libre-baskerville)", "serif"]
       },
       maxWidth: {
         site: "1200px"
