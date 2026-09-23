@@ -66,7 +66,7 @@ export function OffersAppraisal() {
   };
 
   return (
-    <section id="offers" className="section bg-navy text-white">
+    <section id="offers" className="section bg-[#6f4635] text-white">
       <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-6">
           <SectionHeading
