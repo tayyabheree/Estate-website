@@ -12,7 +12,7 @@ export default function HomePage() {
     <>
       <SiteHeader />
 
-      <main id="main-content" className="site-main pt-[72px] md:pt-[78px]">
+      <main id="main-content" className="site-main">
         <Hero />
         <AboutTrust />
         <Services />
