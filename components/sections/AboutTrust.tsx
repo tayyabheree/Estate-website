@@ -14,15 +14,15 @@ export function AboutTrust() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-9">
               <p className="section-label">About WoodRidge</p>
-              <h2 className="max-w-[920px] font-serif text-[clamp(2.2rem,4.4vw,4rem)] leading-[1.12] tracking-[-.035em] text-navy">
+              <h2 className="max-w-[920px] font-serif text-[clamp(1.95rem,3.3vw,3rem)] leading-[1.12] tracking-[-.035em] text-navy">
                 A local agency built around direct involvement, not layers of hand-offs.
               </h2>
             </div>
           </div>
 
-          <div className="mt-12 grid gap-10 border-t border-line pt-10 lg:grid-cols-12 lg:gap-16">
+          <div className="mt-9 grid gap-8 border-t border-line pt-8 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-4">
-              <p className="font-serif text-2xl leading-snug text-navy">
+              <p className="font-serif text-[1.35rem] leading-[1.45] text-navy">
                 Navin Chugh and Yogesh Bhatia stay close to the work—from appraisal
                 and campaign decisions through to leasing, management and project coordination.
               </p>
@@ -63,7 +63,7 @@ export function AboutTrust() {
           </div>
         </Reveal>
 
-        <Reveal className="mt-16">
+        <Reveal className="mt-12">
           <div className="relative aspect-[16/7] min-h-[280px] overflow-hidden">
             <Image
               src="/images/service-invest.jpg"
