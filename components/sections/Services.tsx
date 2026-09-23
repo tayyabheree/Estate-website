@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { site } from "@/content/site";
 
 const blur =
@@ -10,54 +9,57 @@ export function Services() {
   return (
     <section id="services" className="section section--alt">
       <div className="container">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <SectionHeading
-              label="What we do"
-              title="The property work, handled in one place"
-            />
-          </div>
-          <p className="max-w-md text-sm leading-relaxed text-muted lg:col-span-5 lg:justify-self-end">
-            The four core areas WoodRidge handles for homeowners, landlords, buyers and investors.
-          </p>
-        </div>
+        <Reveal>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="section-label">Property services</p>
+              <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.14] tracking-[-.03em] text-navy">
+                One agency for the property work that usually sits across several desks.
+              </h2>
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
+                Choose the service you need now. If the job expands later, the same team
+                can keep the related property work connected.
+              </p>
+            </div>
 
-        <div className="mt-12 grid border-l border-t border-line md:grid-cols-2">
+            <div className="lg:col-span-7">
+              <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                <Image
+                  src="/images/service-sales.jpg"
+                  alt="Contemporary Australian home interior"
+                  fill
+                  sizes="(max-width:1024px) 100vw,700px"
+                  className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={blur}
+                />
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-12 border-t border-line">
           {site.services.map((service, index) => (
             <Reveal key={service.title}>
-              <article className="group h-full border-b border-r border-line bg-white">
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title + " property service"}
-                    fill
-                    sizes="(max-width:768px) 100vw,600px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-                    placeholder="blur"
-                    blurDataURL={blur}
-                  />
+              <a
+                href={service.href}
+                className="group grid gap-4 border-b border-line py-6 sm:grid-cols-[70px_1fr_auto] sm:items-center"
+              >
+                <span className="text-[10px] font-bold tracking-[.16em] text-brandBlue">
+                  0{index + 1}
+                </span>
+                <div>
+                  <h3 className="font-serif text-2xl leading-tight text-navy sm:text-3xl">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+                    {service.description}
+                  </p>
                 </div>
-
-                <div className="grid gap-4 p-6 sm:grid-cols-[48px_1fr] sm:p-8">
-                  <span className="text-[10px] font-bold tracking-[.16em] text-brandBlue">
-                    0{index + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-serif text-2xl leading-tight text-navy">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">
-                      {service.description}
-                    </p>
-                    <a
-                      href={service.href}
-                      className="mt-5 inline-block text-xs font-bold uppercase tracking-[.1em] text-navy underline decoration-brandBlue decoration-1 underline-offset-4"
-                    >
-                      {service.link}
-                    </a>
-                  </div>
-                </div>
-              </article>
+                <span className="text-sm font-semibold text-navy transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
             </Reveal>
           ))}
         </div>
