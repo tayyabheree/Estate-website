@@ -10,7 +10,7 @@ const blur =
 
 function Status({ status }: { status: string }) {
   const dark = status === "For Sale";
-  const red = status === "Sold" || status === "Leased";
+  const closed = status === "Sold" || status === "Leased";
 
   return (
     <span
@@ -18,8 +18,8 @@ function Status({ status }: { status: string }) {
         "inline-flex rounded-[2px] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.14em] " +
         (dark
           ? "bg-navy text-white"
-          : red
-            ? "bg-[#7A1F26] text-white"
+          : closed
+            ? "bg-brandBlue text-white"
             : "border border-navy text-navy")
       }
     >
@@ -150,7 +150,7 @@ export function Listings() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col items-start justify-between gap-5 border-l-2 border-teal pl-5 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col items-start justify-between gap-5 border-l-2 border-brandBlue pl-5 sm:flex-row sm:items-center">
           <p className="max-w-2xl text-sm leading-relaxed text-muted">
             Looking for something specific? Tell us the suburb, property type and budget
             and the team can discuss current opportunities directly.
