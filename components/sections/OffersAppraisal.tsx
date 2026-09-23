@@ -24,39 +24,49 @@ const blur =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyJyBoZWlnaHQ9JzEnPjxyZWN0IHdpZHRoPScyJyBoZWlnaHQ9JzEnIGZpbGw9JyMxMjI2NDAnLz48L3N2Zz4=";
 
 export function OffersAppraisal() {
-  const [success, setSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const [prepared, setPrepared] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset
   } = useForm<Values>({
     resolver: zodResolver(schema),
     defaultValues: { interest: "Sell" }
   });
 
-  const onSubmit = async (values: Values) => {
-    setSuccess(false);
-    setSubmitError(false);
+  const onSubmit = (values: Values) => {
+    const subject = encodeURIComponent(
+      "Free appraisal enquiry — " + values.suburb
+    );
 
-    try {
-      const response = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values)
-      });
+    const body = encodeURIComponent(
+      [
+        "Hello WoodRidge,",
+        "",
+        "I would like to request a free property appraisal.",
+        "",
+        "Name: " + values.name,
+        "Phone: " + values.phone,
+        "Email: " + values.email,
+        "Property / suburb: " + values.suburb,
+        "Interested in: " + values.interest,
+        "",
+        "Message:",
+        values.message?.trim() || "No additional message.",
+        "",
+        "Sent from the WoodRidge website."
+      ].join("\n")
+    );
 
-      if (!response.ok) {
-        throw new Error("Unable to submit enquiry");
-      }
+    const recipients = site.contact.emails.join(",");
 
-      setSuccess(true);
-      reset();
-    } catch {
-      setSubmitError(true);
-    }
+    setPrepared(true);
+    window.location.href =
+      "mailto:" + recipients + "?subject=" + subject + "&body=" + body;
+
+    reset();
   };
 
   return (
@@ -127,7 +137,7 @@ export function OffersAppraisal() {
             Book a free appraisal
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted">
-            Share the basics below and a WoodRidge principal will get in touch.
+            Share the basics below and your email app will prepare the request for WoodRidge.
           </p>
 
           <form
@@ -193,28 +203,19 @@ export function OffersAppraisal() {
             </label>
 
             <div className="sm:col-span-2">
-              <button
-                className="btn btn--primary w-full sm:w-auto"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending…" : "Request My Appraisal"}
+              <button className="btn btn--primary w-full sm:w-auto" type="submit">
+                Request My Appraisal
               </button>
 
-              {success && (
+              {prepared && (
                 <p role="status" className="mt-4 text-sm font-bold text-[#176B59]">
-                  Thanks — your appraisal request has been received.
-                </p>
-              )}
-
-              {submitError && (
-                <p role="alert" className="mt-4 text-sm font-bold text-[#7A1F26]">
-                  We could not send that request. Please call or email WoodRidge directly.
+                  Your email app should now be open with the enquiry ready to send.
                 </p>
               )}
 
               <p className="mt-4 text-xs leading-relaxed text-muted">
-                Your details are used only to respond to your WoodRidge property enquiry.
+                The form prepares an email to Navin Chugh and Yogesh Bhatia. Your details
+                are not stored by this website.
               </p>
             </div>
           </form>
