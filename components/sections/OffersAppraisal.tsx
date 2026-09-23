@@ -70,14 +70,13 @@ export function OffersAppraisal() {
       <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-6">
           <SectionHeading
-            label="Value first"
-            title="Start with a free property appraisal"
+            label="Appraisal & offers"
+            title="Thinking about selling or leasing?"
             light
           />
 
           <p className="mt-7 max-w-xl text-base leading-relaxed text-white/75">
-            Whether you are thinking about selling, leasing or simply want to understand
-            your position, start with a practical conversation about your property and goals.
+            Start with a conversation about the property, the timing and what you want to achieve. WoodRidge can then recommend the next practical step.
           </p>
 
           <div className="mt-10">
