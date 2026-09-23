@@ -62,7 +62,7 @@ export function OffersAppraisal() {
   return (
     <section id="offers" className="bg-white">
       <Reveal>
-        <div className="relative min-h-[360px] overflow-hidden">
+        <div className="relative min-h-[300px] overflow-hidden sm:min-h-[360px]">
           <Image
             src="/images/appraisal-bg.jpg"
             alt="Melbourne residential street at twilight"
@@ -72,7 +72,7 @@ export function OffersAppraisal() {
           />
           <div className="absolute inset-0 bg-black/45" />
 
-          <div className="container relative z-10 flex min-h-[360px] items-center py-16 text-white">
+          <div className="container relative z-10 flex min-h-[300px] items-center py-12 text-white sm:min-h-[360px] sm:py-16">
             <div className="max-w-[760px]">
               <p className="text-[10px] font-bold uppercase tracking-[.18em] text-white/75">
                 Free property appraisal
@@ -117,7 +117,7 @@ export function OffersAppraisal() {
           </Reveal>
 
           <Reveal className="lg:col-span-7">
-            <div id="appraisal" className="scroll-mt-24 border border-line bg-white p-6 sm:p-9">
+            <div id="appraisal" className="min-w-0 scroll-mt-24 border border-line bg-white p-5 sm:p-9">
               <p className="text-[10px] font-bold uppercase tracking-[.16em] text-brandBlue">
                 No obligation
               </p>
@@ -129,7 +129,7 @@ export function OffersAppraisal() {
                 directly to Navin and Yogesh.
               </p>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="mt-7 grid gap-5 sm:grid-cols-2">
+              <form onSubmit={handleSubmit(onSubmit)} className="mt-7 grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5">
                 <FormField label="Name" id="name" register={register("name")} error={errors.name} />
                 <FormField label="Phone" id="phone" type="tel" register={register("phone")} error={errors.phone} />
                 <FormField label="Email" id="email" type="email" register={register("email")} error={errors.email} />
