@@ -1,6 +1,6 @@
-# WoodRidge Real Estate one-page site
+# WoodRidge Real Estate
 
-A custom, premium one-page real-estate marketing site for **WoodRidge Real Estate Pty Ltd**, built with Next.js App Router, TypeScript and Tailwind CSS.
+A self-contained one-page presentation site for **WoodRidge Real Estate Pty Ltd**, built with Next.js, TypeScript and Tailwind CSS.
 
 ## Run locally
 
@@ -9,120 +9,57 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
-
-For a production check:
+For a production build:
 
 ```bash
 npm run build
 npm start
 ```
 
-## Editing site content
+## Content
 
-Most client-editable copy is in:
+General site copy, contact details, service descriptions and offer messaging live in:
 
-```
+```text
 /content/site.ts
 ```
 
-That file contains:
+The current property spotlight lives in:
 
-- navigation labels and anchor links
-- phone numbers, email addresses and office address
-- principal names
-- service titles, descriptions, images and links
-- trust-strip statements
-- optional stats
-- current offer copy and expiry dates
-
-### Optional stats
-
-Stats are deliberately blank. A stat only renders when its `value` is non-empty.
-
-Do not add sales counts, awards, ratings, years of experience or other proof points unless supplied and approved by the client.
-
-## Editing listings
-
-Listing data is in:
-
-```
+```text
 /data/listings.ts
 ```
 
-The UI calls `getListings(status)` rather than importing a raw list into the section. That adapter is the intended replacement point for a live feed from Rex, Agentbox, VaultRE or another CRM.
+The listing adapter remains intentionally small so a Rex, Agentbox, VaultRE or other property feed can replace it later without changing the page design.
 
-The first listing is the supplied real property:
+## Images
 
-- 11 Angaston Circuit, Bacchus Marsh VIC
-- Land
-- $425,000
+All visual assets used by the website are already stored locally in:
 
-The other five entries are sample records with `isPlaceholder: true`. In development they display a small **Sample** ribbon.
-
-Before launch, replace all five sample entries with verified live data or connect the feed adapter.
-
-## Editing images
-
-See:
-
-```
-/public/images/README.md
+```text
+/public/images
 ```
 
-Every image is referenced locally through `next/image`. There are no remote image hosts.
+The live design uses:
 
-The atmosphere images may be generated or commissioned. The principal portrait, listing photos and final logo must be supplied by the client.
+- `hero.jpg`
+- `service-sales.jpg`
+- `service-leasing.jpg`
+- `service-newhomes.jpg`
+- `service-invest.jpg`
+- `appraisal-bg.jpg`
 
-## Enquiry form
+There are no required portrait, logo or listing-photo assets. The WoodRidge wordmark is rendered typographically so the presentation is complete without an external logo file.
 
-The appraisal form posts JSON to:
+## Appraisal form
 
-```
-/app/api/enquiry/route.ts
-```
-
-The route currently validates the payload, logs it server-side and returns HTTP 200.
-
-Before production, replace the logging stub with one of:
-
-- Resend
-- SMTP
-- CRM/webhook integration
-
-Do not expose mail credentials in client-side code.
+The appraisal form validates in the browser and prepares a pre-addressed email enquiry to WoodRidge using the visitor's email application. This keeps the presentation fully functional without external mail-service credentials.
 
 ## SEO and accessibility
 
-The root layout contains:
+The site includes metadata, Open Graph data, `RealEstateAgent` JSON-LD, semantic landmarks, one H1, visible focus states, a skip link, reduced-motion support and a focus-trapped mobile menu.
 
-- page metadata
-- Open Graph data
-- `RealEstateAgent` JSON-LD
-- skip link
-- Australian English document language
-
-The UI includes visible focus states, semantic landmarks, keyboard-operable tabs and carousel controls, reduced-motion handling, and a focus-trapped mobile navigation drawer.
-
-## TODO / placeholder list
-
-1. **CLIENT TO CONFIRM:** final offer expiry date for free conveyancing. Current placeholder: 31 December 2026.
-2. **CLIENT TO CONFIRM:** final offer expiry date for 4% + GST leasing fee. Current placeholder: 31 December 2026.
-3. **CLIENT TO CONFIRM:** complete offer terms/eligibility.
-4. **CLIENT TO CONFIRM:** opening hours.
-5. **CLIENT TO CONFIRM:** Victorian real-estate licence number.
-6. **CLIENT TO SUPPLY:** final `/public/images/logo.svg`.
-7. **CLIENT TO SUPPLY:** principal portrait `about.jpg`.
-8. **CLIENT TO SUPPLY:** listing photos `listing-01.jpg` through `listing-06.jpg`.
-9. Replace five placeholder listings with verified properties or a CRM feed.
-10. Add final Privacy Policy URL/content.
-11. Add final Terms URL/content.
-12. Replace footer social `#` links with confirmed Facebook, X, YouTube and Instagram URLs.
-13. Confirm production domain if different from `https://www.woodridgere.com.au`; update `metadataBase` and JSON-LD.
-14. Connect `/api/enquiry` to Resend, SMTP or CRM.
-15. Confirm whether optional business stats should be shown. Values are blank and therefore hidden by default.
-
-## Project structure
+## Main structure
 
 ```text
 app/
@@ -146,11 +83,8 @@ components/
   ui/
     Button.tsx
     FormField.tsx
-    ListingCard.tsx
     Reveal.tsx
     SectionHeading.tsx
-    StatusBadge.tsx
-    Tabs.tsx
 content/
   site.ts
 data/
@@ -158,9 +92,4 @@ data/
 public/
   images/
     README.md
-next.config.mjs
-package.json
-postcss.config.js
-tailwind.config.ts
-tsconfig.json
 ```
