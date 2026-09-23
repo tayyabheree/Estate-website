@@ -9,7 +9,7 @@ const blur =
 
 export function AboutTrust() {
   return (
-    <section id="about" className="section bg-[#fffaf2]">
+    <section id="about" className="section bg-white">
       <div className="container">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-6">
