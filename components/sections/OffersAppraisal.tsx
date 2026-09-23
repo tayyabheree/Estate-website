@@ -33,10 +33,7 @@ export function OffersAppraisal() {
   });
 
   const onSubmit = (values: Values) => {
-    const subject = encodeURIComponent(
-      "Free appraisal enquiry — " + values.suburb
-    );
-
+    const subject = encodeURIComponent("Free appraisal enquiry — " + values.suburb);
     const body = encodeURIComponent(
       [
         "Hello WoodRidge,",
@@ -56,19 +53,16 @@ export function OffersAppraisal() {
       ].join("\n")
     );
 
-    const recipients = site.contact.emails.join(",");
-
     setPrepared(true);
     window.location.href =
-      "mailto:" + recipients + "?subject=" + subject + "&body=" + body;
-
+      "mailto:" + site.contact.emails.join(",") + "?subject=" + subject + "&body=" + body;
     reset();
   };
 
   return (
-    <section id="offers" className="section bg-[#6f4635] text-white">
-      <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-6">
+    <section id="offers" className="section section--alt">
+      <div className="container grid gap-0 border border-line bg-white lg:grid-cols-12">
+        <div className="bg-navy p-7 text-white sm:p-10 lg:col-span-6 lg:p-12">
           <SectionHeading
             label="Appraisal & offers"
             title="Thinking about selling or leasing?"
@@ -76,7 +70,8 @@ export function OffersAppraisal() {
           />
 
           <p className="mt-7 max-w-xl text-base leading-relaxed text-white/75">
-            Start with a conversation about the property, the timing and what you want to achieve. WoodRidge can then recommend the next practical step.
+            Start with a conversation about the property, the timing and what you want to
+            achieve. WoodRidge can then recommend the next practical step.
           </p>
 
           <div className="mt-10">
@@ -92,10 +87,8 @@ export function OffersAppraisal() {
             ))}
           </div>
 
-          <div className="mt-6 border-l-2 border-teal pl-5">
-            <p className="text-sm font-bold text-white">
-              Prefer to talk first?
-            </p>
+          <div className="mt-6 border-l-2 border-brandBlue pl-5">
+            <p className="text-sm font-bold text-white">Prefer to talk first?</p>
             <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-sm text-white/75">
               {site.contact.phones.map((phone) => (
                 <a
@@ -112,7 +105,7 @@ export function OffersAppraisal() {
 
         <div
           id="appraisal"
-          className="scroll-mt-24 self-start bg-white p-6 text-ink sm:p-9 lg:col-span-6"
+          className="scroll-mt-24 bg-white p-7 text-ink sm:p-10 lg:col-span-6 lg:p-12"
         >
           <p className="text-[11px] font-bold uppercase tracking-[.16em] text-brandBlue">
             No obligation
@@ -128,40 +121,16 @@ export function OffersAppraisal() {
             onSubmit={handleSubmit(onSubmit)}
             className="mt-7 grid gap-5 sm:grid-cols-2"
           >
-            <FormField
-              label="Name"
-              id="name"
-              register={register("name")}
-              error={errors.name}
-            />
-            <FormField
-              label="Phone"
-              id="phone"
-              type="tel"
-              register={register("phone")}
-              error={errors.phone}
-            />
-            <FormField
-              label="Email"
-              id="email"
-              type="email"
-              register={register("email")}
-              error={errors.email}
-            />
-            <FormField
-              label="Suburb / address"
-              id="suburb"
-              register={register("suburb")}
-              error={errors.suburb}
-            />
+            <FormField label="Name" id="name" register={register("name")} error={errors.name} />
+            <FormField label="Phone" id="phone" type="tel" register={register("phone")} error={errors.phone} />
+            <FormField label="Email" id="email" type="email" register={register("email")} error={errors.email} />
+            <FormField label="Suburb / address" id="suburb" register={register("suburb")} error={errors.suburb} />
 
             <label className="block sm:col-span-2">
-              <span className="mb-2 block text-sm font-bold">
-                I&apos;m interested in
-              </span>
+              <span className="mb-2 block text-sm font-bold">I&apos;m interested in</span>
               <select
                 {...register("interest")}
-                className="min-h-12 w-full rounded-[2px] border border-line bg-white px-4"
+                className="min-h-12 w-full rounded-none border border-line bg-white px-4"
               >
                 <option>Sell</option>
                 <option>Lease</option>
@@ -177,10 +146,10 @@ export function OffersAppraisal() {
               <textarea
                 {...register("message")}
                 rows={4}
-                className="w-full rounded-[2px] border border-line p-4"
+                className="w-full rounded-none border border-line p-4"
               />
               {errors.message && (
-                <span className="mt-1 block text-sm text-[#7A1F26]">
+                <span className="mt-1 block text-sm text-[#7A3C36]">
                   {errors.message.message}
                 </span>
               )}
@@ -192,7 +161,7 @@ export function OffersAppraisal() {
               </button>
 
               {prepared && (
-                <p role="status" className="mt-4 text-sm font-bold text-[#176B59]">
+                <p role="status" className="mt-4 text-sm font-bold text-navy">
                   Your email app should now be open with the enquiry ready to send.
                 </p>
               )}
