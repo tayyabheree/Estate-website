@@ -32,7 +32,7 @@ export function Listings() {
   const [featured, ...recent] = getPropertyActivity();
 
   return (
-    <section id="properties" className="section bg-[#f7f1e7]">
+    <section id="properties" className="section bg-white">
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
