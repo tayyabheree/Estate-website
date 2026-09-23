@@ -2,38 +2,37 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/Button";
 import { site } from "@/content/site";
 
 const slides = [
-  { src: "/images/hero.jpg", position: "object-[64%_center] sm:object-center" },
+  { src: "/images/hero.jpg", position: "object-[62%_center] sm:object-center" },
   { src: "/images/service-sales.jpg", position: "object-center" },
   { src: "/images/service-leasing.jpg", position: "object-center" },
   { src: "/images/service-newhomes.jpg", position: "object-center" }
 ];
 
+const actions = [
+  ["Sell", "#appraisal"],
+  ["Lease", "#appraisal"],
+  ["Manage", "#services"],
+  ["Buy", "#properties"]
+] as const;
+
 export function Hero() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    if (reduced.matches) {
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
-    }, 6500);
+    }, 7000);
 
     return () => window.clearInterval(timer);
   }, []);
 
   return (
-    <section
-      id="home"
-      className="relative min-h-[780px] overflow-hidden bg-[#202a25] text-white sm:flex sm:min-h-[700px] sm:h-[100svh] sm:items-center"
-    >
+    <section id="home" className="relative min-h-[650px] overflow-hidden bg-navy text-white md:min-h-[720px]">
       <div className="absolute inset-0" aria-hidden="true">
         {slides.map((slide, index) => (
           <div
@@ -52,66 +51,55 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="hero-overlay absolute inset-0" />
+      <div className="absolute inset-0 bg-black/35" />
 
-      <div className="container relative z-10 pb-12 pt-[132px] sm:py-24">
-        <div className="hero-copy max-w-[760px]">
-          <p className="mb-4 text-[10px] font-bold uppercase tracking-[.2em] text-brandBlue sm:text-[11px]">
-            Melbourne&apos;s west
+      <div className="container relative z-10 flex min-h-[650px] items-end pb-[122px] pt-16 md:min-h-[720px] md:pb-[138px]">
+        <div className="max-w-[650px]">
+          <p className="text-[10px] font-bold uppercase tracking-[.2em] text-white/75">
+            WoodRidge Real Estate · Melbourne&apos;s west
           </p>
 
-          <h1 className="max-w-[720px] font-serif text-[2.45rem] font-bold leading-[1.07] tracking-[-.035em] sm:text-[clamp(3rem,6vw,4.75rem)]">
-            Property handled properly.
+          <h1 className="mt-4 max-w-[620px] font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal leading-[1.08] tracking-[-.035em]">
+            Local property, handled end to end.
           </h1>
 
-          <p className="mt-5 max-w-[620px] text-[17px] leading-[1.65] text-white/88 sm:mt-6 sm:text-xl">
-            Sales, leasing, property management, new homes and investment support —
-            with Navin Chugh and Yogesh Bhatia involved directly.
+          <p className="mt-5 max-w-[580px] text-base leading-relaxed text-white/80 sm:text-lg">
+            Sales, leasing, management, new homes and investment support with direct
+            access to principals Navin Chugh and Yogesh Bhatia.
           </p>
 
-          <p className="mt-4 max-w-[560px] text-sm leading-relaxed text-white/68 sm:text-base">
-            One local team for the practical work before, during and after a property decision.
-          </p>
+          <a
+            href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
+            className="mt-6 inline-flex border-b border-white/55 pb-1 text-sm font-semibold text-white"
+          >
+            Call {site.contact.phones[0]}
+          </a>
+        </div>
+      </div>
 
-          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-            <Button href="#appraisal" className="min-h-[54px] px-7">
-              Book a Free Appraisal
-            </Button>
-            <Button
-              href="#properties"
-              variant="outline"
-              className="min-h-[54px] border-white px-7 text-white hover:border-[#fffdf8] hover:bg-[#fffdf8] hover:text-ink"
-            >
-              View Current Property
-            </Button>
-          </div>
+      <div className="absolute inset-x-0 bottom-0 z-20">
+        <div className="container">
+          <div className="grid border border-line bg-[#fffdf8] text-ink sm:grid-cols-[1.2fr_repeat(4,1fr)]">
+            <div className="hidden min-h-[82px] items-center border-r border-line px-6 sm:flex">
+              <div>
+                <span className="block text-[10px] font-bold uppercase tracking-[.15em] text-brandBlue">
+                  What can we help with?
+                </span>
+                <span className="mt-1 block text-sm text-muted">
+                  Start with the property goal.
+                </span>
+              </div>
+            </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/30 pt-4 text-sm text-white/75 sm:mt-7 sm:pt-5">
-            <span className="font-semibold text-white">Direct principal service</span>
-            <span className="hidden h-1 w-1 bg-brandBlue sm:block" />
-            <a
-              href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
-              className="font-bold text-white hover:underline"
-            >
-              {site.contact.phones[0]}
-            </a>
-          </div>
-
-          <div className="mt-6 flex gap-2" aria-label="Hero image position">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.src}
-                type="button"
-                onClick={() => setActive(index)}
-                aria-label={"Show hero image " + (index + 1)}
-                aria-current={index === active ? "true" : undefined}
-                className={
-                  "h-1 transition-all " +
-                  (index === active
-                    ? "w-10 bg-brandBlue"
-                    : "w-6 bg-white/45 hover:bg-white/75")
-                }
-              />
+            {actions.map(([label, href]) => (
+              <a
+                key={label}
+                href={href}
+                className="flex min-h-[58px] items-center justify-between border-t border-line px-5 text-xs font-bold uppercase tracking-[.11em] transition-colors hover:bg-paper sm:min-h-[82px] sm:border-l sm:border-t-0"
+              >
+                {label}
+                <span aria-hidden="true">→</span>
+              </a>
             ))}
           </div>
         </div>
