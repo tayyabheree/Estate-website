@@ -29,7 +29,7 @@ export function Listings() {
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <p className="section-label section-label--light">Current & recent</p>
-              <h2 className="max-w-[720px] font-serif text-[clamp(2.1rem,4vw,3.6rem)] leading-[1.12] tracking-[-.03em] text-white">
+              <h2 className="max-w-[720px] font-serif text-[clamp(1.9rem,3vw,2.8rem)] leading-[1.12] tracking-[-.03em] text-white">
                 Property activity across Melbourne&apos;s west.
               </h2>
             </div>
@@ -39,7 +39,7 @@ export function Listings() {
           </div>
         </Reveal>
 
-        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 no-scrollbar">
+        <div className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 no-scrollbar">
           {properties.map((property) => (
             <Reveal
               key={property.id}
