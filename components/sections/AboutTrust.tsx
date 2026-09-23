@@ -1,83 +1,81 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { site } from "@/content/site";
 
 const blur =
-  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIGZpbGw9JyNkZGRmZTInLz48L3N2Zz4=";
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzMnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzMnIGZpbGw9JyNlN2U5ZWMnLz48L3N2Zz4=";
 
 export function AboutTrust() {
   return (
     <section id="about" className="section bg-white">
       <div className="container">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
-          <Reveal className="lg:col-span-6">
-            <div className="relative">
-              <div className="relative aspect-[5/4] overflow-hidden bg-paper">
-                <Image
-                  src="/images/service-invest.jpg"
-                  alt="Melbourne western suburbs residential neighbourhood"
-                  fill
-                  sizes="(max-width:1024px) 100vw,560px"
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL={blur}
-                />
-              </div>
-              <div className="relative -mt-14 ml-6 max-w-[360px] border border-line bg-white p-6 sm:ml-10">
-                <p className="text-[11px] font-bold uppercase tracking-[.16em] text-brandBlue">
-                  Led by the principals
-                </p>
-                <p className="mt-2 font-serif text-2xl leading-tight text-navy">
-                  Navin Chugh &amp; Yogesh Bhatia
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  A hands-on approach to sales, leasing, investment and property management.
-                </p>
-              </div>
+        <Reveal>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-9">
+              <p className="section-label">About WoodRidge</p>
+              <h2 className="max-w-[920px] font-serif text-[clamp(2.2rem,4.4vw,4rem)] leading-[1.12] tracking-[-.035em] text-navy">
+                A local agency built around direct involvement, not layers of hand-offs.
+              </h2>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal className="lg:col-span-6">
-            <SectionHeading
-              label="About WoodRidge"
-              title="Property advice from people who stay involved."
-            />
-
-            <div className="entry-content mt-8 max-w-xl text-muted">
-              <p>
-                WoodRidge is based in Truganina and works across Melbourne&apos;s west. Navin Chugh and Yogesh Bhatia remain involved from the first conversation through to the practical details that follow.
+          <div className="mt-12 grid gap-10 border-t border-line pt-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <p className="font-serif text-2xl leading-snug text-navy">
+                Navin Chugh and Yogesh Bhatia stay close to the work—from appraisal
+                and campaign decisions through to leasing, management and project coordination.
               </p>
-              <p>
-                For clients, that means fewer hand-offs. Sales, leasing, management, new homes and investment can sit with the same team, with finance, construction and maintenance coordinated when the job calls for it.
-              </p>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="#appraisal">Book a Free Appraisal</Button>
-              <Button href="#services" variant="outline">
-                Explore Services
+              <Button href="#appraisal" variant="outline" className="mt-7">
+                Book an Appraisal
               </Button>
             </div>
-          </Reveal>
-        </div>
 
-        <div className="mt-16 grid border-y border-line sm:grid-cols-2 lg:grid-cols-4">
-          {site.trustPoints.map((point, index) => (
-            <div
-              key={point}
-              className={
-                "py-5 text-sm font-bold leading-snug text-navy lg:px-6 " +
-                (index > 0 ? "border-t border-line sm:border-t-0 lg:border-l " : "") +
-                (index % 2 === 1 ? "sm:border-l " : "")
-              }
-            >
-              <span className="mr-3 text-teal">—</span>
-              {point}
+            <div className="lg:col-span-8">
+              <div className="grid gap-8 md:grid-cols-2">
+                <div className="text-sm leading-relaxed text-muted">
+                  <p>
+                    WoodRidge is based in Truganina and works across Melbourne&apos;s west.
+                    The agency handles residential sales, leasing and property management,
+                    with support for new homes, house-and-land packages and investment.
+                  </p>
+                </div>
+                <div className="text-sm leading-relaxed text-muted">
+                  <p>
+                    When a property matter extends beyond the agency transaction, the team can
+                    also coordinate finance, construction and maintenance so the moving parts
+                    stay connected.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2">
+                {site.trustPoints.map((point) => (
+                  <div
+                    key={point}
+                    className="border-b border-r border-line px-5 py-5 text-sm font-semibold text-navy"
+                  >
+                    {point}
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </Reveal>
+
+        <Reveal className="mt-16">
+          <div className="relative aspect-[16/7] min-h-[280px] overflow-hidden">
+            <Image
+              src="/images/service-invest.jpg"
+              alt="Residential neighbourhood in Melbourne's west"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              placeholder="blur"
+              blurDataURL={blur}
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
