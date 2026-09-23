@@ -47,7 +47,7 @@ export function SiteHeader() {
         className={
           "site-header sticky top-0 z-50 h-[72px] transition-colors md:h-[76px] " +
           (scrolled
-            ? "border-b border-line bg-white text-navy"
+            ? "border-b border-line bg-[#fffaf2] text-navy"
             : "bg-transparent text-white")
         }
         style={{ marginBottom: "-72px" }}
