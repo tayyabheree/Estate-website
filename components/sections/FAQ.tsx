@@ -32,7 +32,7 @@ export function FAQ() {
           <div className="lg:sticky lg:top-32">
             <SectionHeading
               label="Common questions"
-              title="Straight answers before you get started."
+              title="A few things clients usually ask first"
             />
           </div>
         </Reveal>
