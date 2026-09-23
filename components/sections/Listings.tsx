@@ -1,125 +1,75 @@
 import Image from "next/image";
-import { Bath, BedDouble, Car, MapPin } from "lucide-react";
+import { Bath, BedDouble, Car } from "lucide-react";
 import { getPropertyActivity } from "@/data/listings";
-import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
 
-const blur =
-  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzMnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzMnIGZpbGw9JyNlN2U5ZWMnLz48L3N2Zz4=";
+const imageById: Record<string, string> = {
+  "01": "/images/service-invest.jpg",
+  "02": "/images/service-leasing.jpg",
+  "03": "/images/service-sales.jpg",
+  "04": "/images/hero.jpg"
+};
 
 function Status({ status }: { status: string }) {
-  const dark = status === "For Sale";
-  const closed = status === "Sold" || status === "Leased";
-
   return (
-    <span
-      className={
-        "inline-flex rounded-[2px] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.14em] " +
-        (dark
-          ? "bg-navy text-white"
-          : closed
-            ? "bg-brandBlue text-white"
-            : "border border-navy text-navy")
-      }
-    >
+    <span className="inline-flex border border-white/35 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[.14em] text-white/85">
       {status}
     </span>
   );
 }
 
 export function Listings() {
-  const [featured, ...recent] = getPropertyActivity();
+  const properties = getPropertyActivity();
 
   return (
-    <section id="properties" className="section bg-white">
+    <section id="properties" className="section bg-navy text-white">
       <div className="container">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <SectionHeading
-              label="Current & recent"
-              title="Properties WoodRidge is working with"
-            />
-          </div>
-          <p className="max-w-md text-sm leading-relaxed text-muted lg:col-span-5 lg:justify-self-end">
-            A selection of current and recent WoodRidge activity across sales and leasing in Melbourne&apos;s west.
-          </p>
-        </div>
-
-        <Reveal className="mt-10">
-          <div className="grid overflow-hidden border border-line bg-paper lg:grid-cols-12">
-            <div className="relative min-h-[330px] lg:col-span-7 lg:min-h-[520px]">
-              <Image
-                src="/images/service-invest.jpg"
-                alt="Residential neighbourhood in Melbourne"
-                fill
-                sizes="(max-width:1024px) 100vw,700px"
-                className="object-cover"
-                placeholder="blur"
-                blurDataURL={blur}
-              />
-              <div className="absolute left-5 top-5">
-                <Status status={featured.status} />
-              </div>
-              <p className="absolute bottom-4 left-5 bg-white/95 px-3 py-2 text-[11px] font-medium text-muted">
-                Neighbourhood image
-              </p>
+        <Reveal>
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="section-label section-label--light">Current & recent</p>
+              <h2 className="max-w-[720px] font-serif text-[clamp(2.1rem,4vw,3.6rem)] leading-[1.12] tracking-[-.03em] text-white">
+                Property activity across Melbourne&apos;s west.
+              </h2>
             </div>
-
-            <div className="flex flex-col justify-between p-7 sm:p-10 lg:col-span-5 lg:p-12">
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[.16em] text-brandBlue">
-                  {featured.type}
-                </p>
-                <h3 className="mt-4 font-serif text-[clamp(2rem,4vw,3.4rem)] leading-[1.02] text-navy">
-                  {featured.address}
-                </h3>
-                <p className="mt-4 flex items-center gap-2 text-sm text-muted">
-                  <MapPin size={17} />
-                  {featured.suburb}
-                </p>
-
-                <div className="my-8 h-px bg-line" />
-
-                <p className="text-xs font-bold uppercase tracking-[.14em] text-muted">
-                  Asking price
-                </p>
-                <p className="mt-2 font-serif text-4xl text-navy">
-                  {featured.price}
-                </p>
-
-                <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">
-                  Speak directly with WoodRidge for property details, availability and
-                  inspection information.
-                </p>
-              </div>
-
-              <div className="mt-10">
-                <Button href="#contact">
-                  Enquire About This Property
-                </Button>
-              </div>
-            </div>
+            <p className="max-w-md text-sm leading-relaxed text-white/65 lg:col-span-5 lg:justify-self-end">
+              A selection of current and recent WoodRidge sales and leasing activity.
+            </p>
           </div>
         </Reveal>
 
-        <div className="mt-8 border-t border-line">
-          {recent.map((property) => (
-            <Reveal key={property.id}>
-              <article className="grid gap-5 border-b border-line py-6 md:grid-cols-[140px_1fr_auto] md:items-center">
-                <div>
-                  <Status status={property.status} />
+        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 no-scrollbar">
+          {properties.map((property) => (
+            <Reveal
+              key={property.id}
+              className="min-w-[86%] snap-start sm:min-w-[55%] lg:min-w-[31%]"
+            >
+              <article className="h-full bg-[#fffdf8] text-ink">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={imageById[property.id] ?? "/images/service-sales.jpg"}
+                    alt=""
+                    fill
+                    sizes="(max-width:768px) 86vw,(max-width:1024px) 55vw,360px"
+                    className="object-cover"
+                  />
+                  <div className="absolute left-4 top-4">
+                    <Status status={property.status} />
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-serif text-2xl leading-tight text-navy">
+                <div className="p-5">
+                  <p className="text-[10px] font-bold uppercase tracking-[.14em] text-brandBlue">
+                    {property.type}
+                  </p>
+                  <h3 className="mt-2 font-serif text-2xl leading-tight text-navy">
                     {property.address}
                   </h3>
-                  <p className="mt-1 text-sm text-muted">
-                    {property.suburb} · {property.type}
-                  </p>
+                  <p className="mt-1 text-sm text-muted">{property.suburb}</p>
+
                   {(property.beds || property.baths || property.cars) && (
-                    <div className="mt-3 flex flex-wrap gap-4 text-xs font-medium text-muted">
+                    <div className="mt-4 flex gap-4 border-t border-line pt-4 text-xs text-muted">
                       {property.beds && (
                         <span className="flex items-center gap-1.5">
                           <BedDouble size={15} />
@@ -140,23 +90,17 @@ export function Listings() {
                       )}
                     </div>
                   )}
-                </div>
 
-                <p className="font-serif text-2xl text-navy md:text-right">
-                  {property.price}
-                </p>
+                  <p className="mt-5 font-serif text-xl text-navy">{property.price}</p>
+                </div>
               </article>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col items-start justify-between gap-5 border-l-2 border-brandBlue pl-5 sm:flex-row sm:items-center">
-          <p className="max-w-2xl text-sm leading-relaxed text-muted">
-            Looking for something specific? Tell us the suburb, property type and budget
-            and the team can discuss current opportunities directly.
-          </p>
-          <Button href="#contact" variant="outline">
-            Discuss Your Search
+        <div className="mt-7">
+          <Button href="#contact" variant="outline" className="border-white text-white hover:bg-white hover:text-navy">
+            Discuss Your Property Search
           </Button>
         </div>
       </div>
