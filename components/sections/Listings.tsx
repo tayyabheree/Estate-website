@@ -37,13 +37,12 @@ export function Listings() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <SectionHeading
-              label="Property activity"
-              title="A snapshot of WoodRidge in the market."
+              label="Current & recent"
+              title="Properties WoodRidge is working with"
             />
           </div>
           <p className="max-w-md text-sm leading-relaxed text-muted lg:col-span-5 lg:justify-self-end">
-            Current and recent property activity from the WoodRidge portfolio, presented
-            without the heavy listing plugins used on the previous website.
+            A selection of current and recent WoodRidge activity across sales and leasing in Melbourne&apos;s west.
           </p>
         </div>
 
