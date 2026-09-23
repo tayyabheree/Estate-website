@@ -1,0 +1,8 @@
+"use client";
+import { useRef,useState } from "react";
+import { ArrowLeft,ArrowRight } from "lucide-react";
+import { getListings,type ListingStatus } from "@/data/listings";
+import { ListingCard } from "@/components/ui/ListingCard";
+import { Tabs } from "@/components/ui/Tabs";
+import { Button } from "@/components/ui/Button";
+export function Listings(){const [status,setStatus]=useState<ListingStatus>("sale");const track=useRef<HTMLDivElement>(null);const items=getListings(status);const move=(dir:number)=>track.current?.scrollBy({left:dir*track.current.clientWidth*.82,behavior:"smooth"});return <section id="properties" className="section bg-white"><div className="container"><div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"><div><p className="section-label">Properties</p><h2 className="section-title">Featured properties</h2><div className="section-rule"/></div><Tabs value={status} onChange={setStatus}/></div><div ref={track} className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-3">{items.map(item=><ListingCard key={item.id} listing={item}/>)}</div><div className="mt-7 flex flex-wrap items-center justify-between gap-4"><Button href="#contact" variant="outline">View All Properties</Button><div className="flex gap-2"><button type="button" aria-label="Previous properties" onClick={()=>move(-1)} className="flex h-12 w-12 items-center justify-center border border-line text-navy hover:border-navy"><ArrowLeft size={20}/></button><button type="button" aria-label="Next properties" onClick={()=>move(1)} className="flex h-12 w-12 items-center justify-center border border-line text-navy hover:border-navy"><ArrowRight size={20}/></button></div></div></div></section>;}
