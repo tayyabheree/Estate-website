@@ -13,7 +13,7 @@ export function Services() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="section-label">Property services</p>
-              <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.14] tracking-[-.03em] text-navy">
+              <h2 className="font-serif text-[clamp(1.9rem,3vw,2.7rem)] leading-[1.14] tracking-[-.03em] text-navy">
                 One agency for the property work that usually sits across several desks.
               </h2>
               <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
@@ -38,7 +38,7 @@ export function Services() {
           </div>
         </Reveal>
 
-        <div className="mt-12 border-t border-line">
+        <div className="mt-10 border-t border-line">
           {site.services.map((service, index) => (
             <Reveal key={service.title}>
               <a
@@ -49,7 +49,7 @@ export function Services() {
                   0{index + 1}
                 </span>
                 <div>
-                  <h3 className="font-serif text-2xl leading-tight text-navy sm:text-3xl">
+                  <h3 className="font-serif text-[1.45rem] leading-tight text-navy sm:text-[1.75rem]">
                     {service.title}
                   </h3>
                   <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
