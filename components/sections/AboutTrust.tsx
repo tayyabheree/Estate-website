@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
+import { Check } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
 
@@ -11,69 +11,60 @@ export function AboutTrust() {
     <section id="about" className="section bg-white">
       <div className="container">
         <Reveal>
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-9">
-              <p className="section-label">About WoodRidge</p>
-              <h2 className="max-w-[920px] font-serif text-[clamp(1.95rem,3.3vw,3rem)] leading-[1.12] tracking-[-.035em] text-navy">
-                A local agency built around direct involvement, not layers of hand-offs.
+          <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-6">
+              <p className="section-label">Why WoodRidge</p>
+              <h2 className="font-serif text-[1.9rem] leading-[1.2] tracking-[-.025em] text-navy sm:text-[2.25rem]">
+                Direct property advice from the people leading the agency.
               </h2>
-            </div>
-          </div>
 
-          <div className="mt-9 grid gap-8 border-t border-line pt-8 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-4">
-              <p className="font-serif text-[1.35rem] leading-[1.45] text-navy">
-                Navin Chugh and Yogesh Bhatia stay close to the work—from appraisal
-                and campaign decisions through to leasing, management and project coordination.
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+                Based in Truganina, WoodRidge works across Melbourne&apos;s west with homeowners,
+                landlords, buyers and investors. Navin Chugh and Yogesh Bhatia stay involved
+                throughout the process rather than handing clients from one department to another.
               </p>
-              <Button href="#appraisal" variant="outline" className="mt-7">
-                Book an Appraisal
-              </Button>
-            </div>
 
-            <div className="lg:col-span-8">
-              <div className="grid gap-8 md:grid-cols-2">
-                <div className="text-sm leading-relaxed text-muted">
-                  <p>
-                    WoodRidge is based in Truganina and works across Melbourne&apos;s west.
-                    The agency handles residential sales, leasing and property management,
-                    with support for new homes, house-and-land packages and investment.
-                  </p>
-                </div>
-                <div className="text-sm leading-relaxed text-muted">
-                  <p>
-                    When a property matter extends beyond the agency transaction, the team can
-                    also coordinate finance, construction and maintenance so the moving parts
-                    stay connected.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2">
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
                 {site.trustPoints.map((point) => (
-                  <div
-                    key={point}
-                    className="border-b border-r border-line px-5 py-5 text-sm font-semibold text-navy"
-                  >
-                    {point}
+                  <div key={point} className="flex min-w-0 gap-3 border-t border-line pt-3">
+                    <Check size={17} className="mt-0.5 shrink-0 text-brandBlue" />
+                    <span className="text-sm font-semibold leading-snug text-navy">{point}</span>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </Reveal>
 
-        <Reveal className="mt-12">
-          <div className="relative aspect-[16/7] min-h-[280px] overflow-hidden">
-            <Image
-              src="/images/service-invest.jpg"
-              alt="Residential neighbourhood in Melbourne's west"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              placeholder="blur"
-              blurDataURL={blur}
-            />
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a href="#appraisal" className="btn btn--primary">
+                  Book an Appraisal
+                </a>
+                <a href="#services" className="btn btn--outline text-navy">
+                  View Services
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="relative aspect-[4/3] overflow-hidden bg-paper">
+                <Image
+                  src="/images/service-invest.jpg"
+                  alt="Residential neighbourhood in Melbourne's west"
+                  fill
+                  sizes="(max-width:1024px) 100vw,560px"
+                  className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={blur}
+                />
+              </div>
+
+              <div className="border-x border-b border-line bg-[#fffdf8] px-5 py-4">
+                <p className="text-[10px] font-bold uppercase tracking-[.15em] text-brandBlue">
+                  Principal-led service
+                </p>
+                <p className="mt-1 text-sm text-muted">
+                  Navin Chugh &amp; Yogesh Bhatia · Melbourne&apos;s west
+                </p>
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>
