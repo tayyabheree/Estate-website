@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 
 export function SiteFooter() {
   return (
-    <footer id="contact" className="site-footer bg-[#202a25] pb-24 text-white md:pb-0">
+    <footer id="contact" className="site-footer bg-[#202a25] text-white">
       <div className="container border-b border-white/15 py-11 sm:py-14">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
