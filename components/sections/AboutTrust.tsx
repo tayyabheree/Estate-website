@@ -3,5 +3,86 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { site } from "@/content/site";
-const blur="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIGZpbGw9JyNkZGRmZTInLz48L3N2Zz4=";
-export function AboutTrust(){const stats=site.stats.filter(s=>s.value);return <section id="about" className="section bg-white"><div className="container"><div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16"><Reveal className="lg:col-span-5"><div className="relative aspect-[4/5] overflow-hidden bg-paper"><Image src="/images/about.jpg" alt="WoodRidge principals Navin Chugh and Yogesh Bhatia" fill sizes="(max-width:1024px) 100vw,480px" className="object-cover" placeholder="blur" blurDataURL={blur}/></div></Reveal><Reveal className="lg:col-span-7"><SectionHeading label="About WoodRidge" title="Local agents. One team for every stage of your property."/><div className="entry-content mt-8 max-w-2xl text-muted"><p>WoodRidge is built around three practical values: integrity in the advice we give, professionalism in how we represent your property, and performance measured by the work we do for each client.</p><p>Whether you are selling, buying, leasing or managing, you deal directly with a team that can coordinate the whole property process, including new homes, investment and project management.</p></div><Button href="#contact" className="mt-6">Meet the Team</Button>{stats.length>0&&<div className="mt-8 grid grid-cols-2 gap-4">{stats.map(s=><div key={s.label}><strong className="font-serif text-3xl text-navy">{s.value}</strong><span className="block text-xs uppercase tracking-wider text-muted">{s.label}</span></div>)}</div>}</Reveal></div><div className="mt-16 grid border-y border-line sm:grid-cols-2 lg:grid-cols-4">{site.trustPoints.map((point,index)=><div key={point} className={"py-5 text-sm font-bold text-navy lg:px-6 "+(index>0?"border-t border-line sm:border-t-0 lg:border-l":"")+(index%2===1?" sm:border-l":"")}>{point}</div>)}</div></div></section>;}
+
+const blur =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIGZpbGw9JyNkZGRmZTInLz48L3N2Zz4=";
+
+export function AboutTrust() {
+  return (
+    <section id="about" className="section bg-white">
+      <div className="container">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
+          <Reveal className="lg:col-span-6">
+            <div className="relative">
+              <div className="relative aspect-[5/4] overflow-hidden bg-paper">
+                <Image
+                  src="/images/service-invest.jpg"
+                  alt="Melbourne western suburbs residential neighbourhood"
+                  fill
+                  sizes="(max-width:1024px) 100vw,560px"
+                  className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={blur}
+                />
+              </div>
+              <div className="relative -mt-14 ml-6 max-w-[360px] border border-line bg-white p-6 sm:ml-10">
+                <p className="text-[11px] font-bold uppercase tracking-[.16em] text-brandBlue">
+                  Led by the principals
+                </p>
+                <p className="mt-2 font-serif text-2xl leading-tight text-navy">
+                  Navin Chugh &amp; Yogesh Bhatia
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  A hands-on approach to sales, leasing, investment and property management.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal className="lg:col-span-6">
+            <SectionHeading
+              label="About WoodRidge"
+              title="Local property advice, without the hand-offs."
+            />
+
+            <div className="entry-content mt-8 max-w-xl text-muted">
+              <p>
+                WoodRidge Real Estate is a full-service agency focused on Melbourne&apos;s
+                west. Homeowners, investors, tenants and first-home buyers can deal with
+                one team across sales, leasing, management, new homes and investment.
+              </p>
+              <p>
+                The approach is simple: clear advice, professional presentation and
+                direct communication. When a project needs more than an agency service,
+                WoodRidge can also coordinate finance, construction and ongoing maintenance.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href="#appraisal">Book a Free Appraisal</Button>
+              <Button href="#services" variant="outline">
+                Explore Services
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="mt-16 grid border-y border-line sm:grid-cols-2 lg:grid-cols-4">
+          {site.trustPoints.map((point, index) => (
+            <div
+              key={point}
+              className={
+                "py-5 text-sm font-bold leading-snug text-navy lg:px-6 " +
+                (index > 0 ? "border-t border-line sm:border-t-0 lg:border-l " : "") +
+                (index % 2 === 1 ? "sm:border-l " : "")
+              }
+            >
+              <span className="mr-3 text-teal">—</span>
+              {point}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
