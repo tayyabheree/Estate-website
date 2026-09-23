@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Phone } from "lucide-react";
 import { site } from "@/content/site";
 
 const slides = [
@@ -31,9 +32,12 @@ export function Hero() {
     return () => window.clearInterval(timer);
   }, []);
 
+  const primaryPhone = site.contact.phones[0];
+  const tel = "tel:" + primaryPhone.replace(/\s/g, "");
+
   return (
     <section id="home" className="bg-navy text-white">
-      <div className="relative min-h-[610px] overflow-hidden md:min-h-[720px]">
+      <div className="relative min-h-[560px] overflow-hidden sm:min-h-[610px] md:min-h-[650px]">
         <div className="absolute inset-0" aria-hidden="true">
           {slides.map((slide, index) => (
             <div
@@ -52,37 +56,50 @@ export function Hero() {
           ))}
         </div>
 
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/40" />
 
-        <div className="container relative z-10 flex min-h-[610px] items-end pb-12 pt-20 md:min-h-[720px] md:pb-32 md:pt-24">
-          <div className="max-w-[650px]">
+        <div className="container relative z-10 flex min-h-[560px] items-center pb-10 pt-12 sm:min-h-[610px] sm:pb-14 sm:pt-16 md:min-h-[650px] md:pb-24 md:pt-20">
+          <div className="max-w-[620px] -translate-y-3 sm:-translate-y-5 md:-translate-y-7">
             <p className="text-[10px] font-bold uppercase tracking-[.2em] text-white/75">
               WoodRidge Real Estate · Melbourne&apos;s west
             </p>
 
-            <h1 className="mt-4 max-w-[620px] font-serif text-[2.4rem] font-normal leading-[1.08] tracking-[-.035em] sm:text-[3.2rem] md:text-[4.3rem]">
-              Local property, handled end to end.
+            <h1 className="mt-3 max-w-[600px] font-serif text-[2.2rem] font-normal leading-[1.08] tracking-[-.03em] sm:text-[2.85rem] md:text-[3.65rem]">
+              Sell, lease or manage your property with a local team.
             </h1>
 
-            <p className="mt-5 max-w-[560px] text-[15px] leading-[1.65] text-white/80 sm:text-lg">
-              Sales, leasing, management, new homes and investment support with direct
-              access to principals Navin Chugh and Yogesh Bhatia.
+            <p className="mt-4 max-w-[560px] text-[15px] leading-[1.6] text-white/82 sm:text-[17px]">
+              Direct support from Navin Chugh and Yogesh Bhatia across sales, leasing,
+              property management, new homes and investment.
             </p>
 
-            <a
-              href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
-              className="mt-5 inline-flex border-b border-white/55 pb-1 text-sm font-semibold text-white"
-            >
-              Call {site.contact.phones[0]}
-            </a>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#appraisal"
+                className="btn btn--primary min-h-[52px] px-6"
+              >
+                Book a Free Appraisal
+              </a>
+              <a
+                href={tel}
+                className="btn min-h-[52px] border border-white bg-transparent px-6 text-white hover:bg-white hover:text-ink"
+              >
+                <Phone size={16} />
+                Call Now
+              </a>
+            </div>
+
+            <p className="mt-4 text-xs leading-relaxed text-white/62">
+              No obligation. Speak directly with the principals about your property.
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="relative z-20 bg-[#fffdf8] text-ink md:-mt-[84px] md:bg-transparent">
+      <div className="relative z-20 bg-[#fffdf8] text-ink md:-mt-[74px] md:bg-transparent">
         <div className="container">
           <div className="grid grid-cols-2 border border-line bg-[#fffdf8] md:grid-cols-[1.2fr_repeat(4,1fr)]">
-            <div className="hidden min-h-[82px] items-center border-r border-line px-6 md:flex">
+            <div className="hidden min-h-[74px] items-center border-r border-line px-6 md:flex">
               <div>
                 <span className="block text-[10px] font-bold uppercase tracking-[.15em] text-brandBlue">
                   What can we help with?
@@ -98,7 +115,7 @@ export function Hero() {
                 key={label}
                 href={href}
                 className={
-                  "flex min-h-[76px] items-center justify-between px-5 text-xs font-bold uppercase tracking-[.11em] transition-colors hover:bg-paper md:min-h-[82px] md:border-l " +
+                  "flex min-h-[64px] items-center justify-between px-4 text-[11px] font-bold uppercase tracking-[.1em] transition-colors hover:bg-paper sm:px-5 md:min-h-[74px] md:border-l " +
                   (index >= 2 ? "border-t border-line md:border-t-0 " : "") +
                   (index % 2 === 1 ? "border-l border-line md:border-l" : "")
                 }
