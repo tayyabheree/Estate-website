@@ -4,27 +4,27 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const principles = [
   {
     number: "01",
-    title: "Integrity & transparency",
+    title: "Straight conversations",
     copy:
-      "Clear communication, practical advice and straightforward conversations from the first meeting onward."
+      "Clear advice on what is happening, what needs attention and what the next step is."
   },
   {
     number: "02",
-    title: "Professional service",
+    title: "The details are followed through",
     copy:
-      "Careful presentation, responsive communication and attention to the details that shape a property result."
+      "From presentation and enquiries to paperwork and follow-up, the small details are treated as part of the job."
   },
   {
     number: "03",
-    title: "Modern property thinking",
+    title: "Digital where it helps",
     copy:
-      "Digital marketing, current market information and efficient systems used where they genuinely improve the process."
+      "Online marketing and current market information are used to make the process clearer and more efficient, not more complicated."
   },
   {
     number: "04",
-    title: "End-to-end support",
+    title: "More than the agency transaction",
     copy:
-      "Sales, leasing, management, finance coordination, construction and maintenance can stay connected through one team."
+      "When required, finance coordination, construction and maintenance can stay connected to the same property plan."
   }
 ];
 
@@ -36,12 +36,11 @@ export function WhyWoodRidge() {
           <div className="lg:sticky lg:top-32">
             <SectionHeading
               label="Why WoodRidge"
-              title="One team, from the first decision to the final handover."
+              title="A practical way to run property matters."
               light
             />
             <p className="mt-7 max-w-md text-base leading-relaxed text-white/70">
-              WoodRidge combines agency services with broader property support, so clients
-              can keep fewer moving parts and deal directly with the people leading the work.
+              The agency model is deliberately hands-on. Clients can speak to the principals, keep related work connected and avoid being passed between separate providers.
             </p>
 
             <div className="mt-9 border-l-2 border-teal pl-5 text-sm leading-relaxed text-white/65">
