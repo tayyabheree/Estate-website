@@ -26,7 +26,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="section bg-[#ded4c5]" aria-labelledby="faq-heading">
+    <section className="section section--alt" aria-labelledby="faq-heading">
       <div className="container grid gap-12 lg:grid-cols-12 lg:gap-20">
         <Reveal className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
