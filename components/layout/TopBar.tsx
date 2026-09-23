@@ -1,0 +1,3 @@
+import { Mail, MapPin, Phone } from "lucide-react";
+import { site } from "@/content/site";
+export function TopBar(){return <div className="hidden h-9 bg-navy text-[12px] text-white md:block"><div className="container flex h-full items-center gap-5"><a href={"tel:"+site.contact.phones[0].replace(/\s/g,"")} className="flex items-center gap-2 hover:underline"><Phone size={14}/>{site.contact.phones[0]}</a><a href={"mailto:"+site.contact.emails[0]} className="flex items-center gap-2 hover:underline"><Mail size={14}/>{site.contact.emails[0]}</a><span className="flex items-center gap-2"><MapPin size={14}/>{site.contact.locality}</span></div></div>;}
