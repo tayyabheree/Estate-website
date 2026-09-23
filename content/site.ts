@@ -28,7 +28,9 @@ export const site = {
     { label: "CLIENT TO CONFIRM", value: "" }
   ],
   offers: [
+    // TODO: CLIENT TO CONFIRM final validity date and complete eligibility terms.
     { title: "Free conveyancing when you sell with WoodRidge", terms: "Available on eligible sales campaigns. Full terms to be confirmed.", validUntil: "2026-12-31" },
+    // TODO: CLIENT TO CONFIRM final validity date and complete eligibility terms.
     { title: "Leasing fee 4% + GST for your first 12 months", terms: "Available for eligible new management appointments. Full terms to be confirmed.", validUntil: "2026-12-31" }
   ]
 } as const;
