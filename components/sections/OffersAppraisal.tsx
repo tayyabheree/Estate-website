@@ -117,7 +117,7 @@ export function OffersAppraisal() {
           </Reveal>
 
           <Reveal className="lg:col-span-7">
-            <div id="appraisal" className="min-w-0 scroll-mt-24 border border-line bg-white p-5 sm:p-9">
+            <div id="appraisal" className="min-w-0 border border-line bg-white p-5 sm:p-9">
               <p className="text-[10px] font-bold uppercase tracking-[.16em] text-brandBlue">
                 No obligation
               </p>
