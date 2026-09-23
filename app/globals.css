@@ -76,7 +76,7 @@ textarea {
 }
 
 .section {
-  padding-block: 96px;
+  padding-block: 80px;
 }
 
 .section--alt {
@@ -271,7 +271,7 @@ textarea {
   }
 
   .section {
-    padding-block: 68px;
+    padding-block: 56px;
   }
 
   .hero-copy {
