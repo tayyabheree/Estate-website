@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,9 +18,6 @@ const schema = z.object({
 });
 
 type Values = z.infer<typeof schema>;
-
-const blur =
-  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyJyBoZWlnaHQ9JzEnPjxyZWN0IHdpZHRoPScyJyBoZWlnaHQ9JzEnIGZpbGw9JyMxMjI2NDAnLz48L3N2Zz4=";
 
 export function OffersAppraisal() {
   const [prepared, setPrepared] = useState(false);
@@ -70,19 +66,8 @@ export function OffersAppraisal() {
   };
 
   return (
-    <section id="offers" className="section relative overflow-hidden bg-navy text-white">
-      <Image
-        src="/images/appraisal-bg.jpg"
-        alt="Melbourne suburban street at twilight"
-        fill
-        sizes="100vw"
-        className="object-cover"
-        placeholder="blur"
-        blurDataURL={blur}
-      />
-      <div className="absolute inset-0 bg-navy/85" />
-
-      <div className="container relative z-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
+    <section id="offers" className="section bg-navy text-white">
+      <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-6">
           <SectionHeading
             label="Value first"
@@ -97,7 +82,7 @@ export function OffersAppraisal() {
 
           <div className="mt-10">
             {site.offers.map((offer) => (
-              <article key={offer.title} className="border-t border-white/25 py-6">
+              <article key={offer.title} className="border-t border-white/20 py-6">
                 <h3 className="font-serif text-2xl leading-tight">
                   {offer.title}
                 </h3>
