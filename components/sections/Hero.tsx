@@ -32,55 +32,57 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[650px] overflow-hidden bg-navy text-white md:min-h-[720px]">
-      <div className="absolute inset-0" aria-hidden="true">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.src}
-            className={"hero-slide absolute inset-0 " + (index === active ? "is-active" : "")}
-          >
-            <Image
-              src={slide.src}
-              alt=""
-              fill
-              priority={index === 0}
-              sizes="100vw"
-              className={"object-cover " + slide.position}
-            />
+    <section id="home" className="bg-navy text-white">
+      <div className="relative min-h-[610px] overflow-hidden md:min-h-[720px]">
+        <div className="absolute inset-0" aria-hidden="true">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.src}
+              className={"hero-slide absolute inset-0 " + (index === active ? "is-active" : "")}
+            >
+              <Image
+                src={slide.src}
+                alt=""
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className={"object-cover " + slide.position}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="absolute inset-0 bg-black/35" />
+
+        <div className="container relative z-10 flex min-h-[610px] items-end pb-12 pt-20 md:min-h-[720px] md:pb-32 md:pt-24">
+          <div className="max-w-[650px]">
+            <p className="text-[10px] font-bold uppercase tracking-[.2em] text-white/75">
+              WoodRidge Real Estate · Melbourne&apos;s west
+            </p>
+
+            <h1 className="mt-4 max-w-[620px] font-serif text-[2.4rem] font-normal leading-[1.08] tracking-[-.035em] sm:text-[3.2rem] md:text-[4.3rem]">
+              Local property, handled end to end.
+            </h1>
+
+            <p className="mt-5 max-w-[560px] text-[15px] leading-[1.65] text-white/80 sm:text-lg">
+              Sales, leasing, management, new homes and investment support with direct
+              access to principals Navin Chugh and Yogesh Bhatia.
+            </p>
+
+            <a
+              href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
+              className="mt-5 inline-flex border-b border-white/55 pb-1 text-sm font-semibold text-white"
+            >
+              Call {site.contact.phones[0]}
+            </a>
           </div>
-        ))}
-      </div>
-
-      <div className="absolute inset-0 bg-black/35" />
-
-      <div className="container relative z-10 flex min-h-[650px] items-end pb-[122px] pt-16 md:min-h-[720px] md:pb-[138px]">
-        <div className="max-w-[650px]">
-          <p className="text-[10px] font-bold uppercase tracking-[.2em] text-white/75">
-            WoodRidge Real Estate · Melbourne&apos;s west
-          </p>
-
-          <h1 className="mt-4 max-w-[620px] font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal leading-[1.08] tracking-[-.035em]">
-            Local property, handled end to end.
-          </h1>
-
-          <p className="mt-5 max-w-[580px] text-base leading-relaxed text-white/80 sm:text-lg">
-            Sales, leasing, management, new homes and investment support with direct
-            access to principals Navin Chugh and Yogesh Bhatia.
-          </p>
-
-          <a
-            href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
-            className="mt-6 inline-flex border-b border-white/55 pb-1 text-sm font-semibold text-white"
-          >
-            Call {site.contact.phones[0]}
-          </a>
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-20">
+      <div className="relative z-20 bg-[#fffdf8] text-ink md:-mt-[84px] md:bg-transparent">
         <div className="container">
-          <div className="grid border border-line bg-[#fffdf8] text-ink sm:grid-cols-[1.2fr_repeat(4,1fr)]">
-            <div className="hidden min-h-[82px] items-center border-r border-line px-6 sm:flex">
+          <div className="grid grid-cols-2 border border-line bg-[#fffdf8] md:grid-cols-[1.2fr_repeat(4,1fr)]">
+            <div className="hidden min-h-[82px] items-center border-r border-line px-6 md:flex">
               <div>
                 <span className="block text-[10px] font-bold uppercase tracking-[.15em] text-brandBlue">
                   What can we help with?
@@ -91,11 +93,15 @@ export function Hero() {
               </div>
             </div>
 
-            {actions.map(([label, href]) => (
+            {actions.map(([label, href], index) => (
               <a
                 key={label}
                 href={href}
-                className="flex min-h-[58px] items-center justify-between border-t border-line px-5 text-xs font-bold uppercase tracking-[.11em] transition-colors hover:bg-paper sm:min-h-[82px] sm:border-l sm:border-t-0"
+                className={
+                  "flex min-h-[76px] items-center justify-between px-5 text-xs font-bold uppercase tracking-[.11em] transition-colors hover:bg-paper md:min-h-[82px] md:border-l " +
+                  (index >= 2 ? "border-t border-line md:border-t-0 " : "") +
+                  (index % 2 === 1 ? "border-l border-line md:border-l" : "")
+                }
               >
                 {label}
                 <span aria-hidden="true">→</span>
