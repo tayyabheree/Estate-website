@@ -64,7 +64,7 @@ export function Hero() {
               WoodRidge Real Estate · Melbourne&apos;s west
             </p>
 
-            <h1 className="mt-3 max-w-[600px] font-serif text-[2.2rem] font-normal leading-[1.08] tracking-[-.03em] sm:text-[2.85rem] md:text-[3.65rem]">
+            <h1 className="mt-3 max-w-[600px] font-serif text-[2.5rem] font-normal leading-[1.08] tracking-[-.03em] sm:text-[3.05rem] md:text-[3.8rem]">
               Sell, lease or manage your property with a local team.
             </h1>
 
