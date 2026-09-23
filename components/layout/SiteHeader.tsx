@@ -15,9 +15,7 @@ export function SiteHeader() {
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        if (visible) {
-          setActive("#" + visible.target.id);
-        }
+        if (visible) setActive("#" + visible.target.id);
       },
       { rootMargin: "-35% 0px -55%", threshold: [0, 0.2, 0.6] }
     );
@@ -32,10 +30,10 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="site-header sticky top-0 z-50 h-[72px] border-b border-white/10 bg-navy text-white md:h-[78px]">
+      <header className="site-header fixed inset-x-0 top-0 z-50 h-[72px] border-b border-white/10 bg-navy text-white md:h-[78px]">
         <div className="container flex h-full items-center justify-between">
-          <a href="#home" className="leading-none" aria-label="WoodRidge Real Estate home">
-            <span className="block font-serif text-[24px] tracking-[-.025em]">
+          <a href="#home" className="min-w-0 leading-none" aria-label="WoodRidge Real Estate home">
+            <span className="block font-serif text-[24px] tracking-[-.025em] sm:text-[26px]">
               WoodRidge
             </span>
             <span className="mt-1 block text-[8px] font-bold tracking-[.31em] text-white/65">
