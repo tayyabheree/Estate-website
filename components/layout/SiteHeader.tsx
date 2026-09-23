@@ -50,10 +50,14 @@ export function SiteHeader() {
             ? "border-b border-line bg-white text-navy"
             : "bg-transparent text-white")
         }
-        style={{ marginBottom: "-76px" }}
+        style={{ marginBottom: "-72px" }}
       >
         <div className="container flex h-full items-center justify-between">
-          <a href="#home" className="min-w-0 leading-none" aria-label="WoodRidge Real Estate home">
+          <a
+            href="#home"
+            className="min-w-0 leading-none"
+            aria-label="WoodRidge Real Estate home"
+          >
             <span
               className={
                 "block font-serif text-[25px] tracking-[-.02em] " +
@@ -89,7 +93,7 @@ export function SiteHeader() {
 
           <a
             href="#appraisal"
-            className="btn btn--primary hidden min-h-11 px-4 xl:inline-flex"
+            className="header-appraisal btn btn--primary min-h-11 px-4"
           >
             Free Appraisal
           </a>
