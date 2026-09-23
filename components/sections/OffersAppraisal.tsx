@@ -77,7 +77,7 @@ export function OffersAppraisal() {
               <p className="text-[10px] font-bold uppercase tracking-[.18em] text-white/75">
                 Free property appraisal
               </p>
-              <h2 className="mt-4 font-serif text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.12] tracking-[-.03em]">
+              <h2 className="mt-4 font-serif text-[clamp(1.9rem,3.2vw,3rem)] leading-[1.12] tracking-[-.03em]">
                 Know where the property stands before deciding what comes next.
               </h2>
               <a
@@ -95,7 +95,7 @@ export function OffersAppraisal() {
         <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <p className="section-label">Current offers</p>
-            <h2 className="font-serif text-[clamp(2rem,3.6vw,3.2rem)] leading-[1.14] tracking-[-.03em] text-navy">
+            <h2 className="font-serif text-[clamp(1.85rem,2.8vw,2.6rem)] leading-[1.14] tracking-[-.03em] text-navy">
               Selling or leasing with WoodRidge?
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-muted">
