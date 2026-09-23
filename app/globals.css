@@ -4,12 +4,12 @@
 
 :root {
   --navy: #26352f;
-  --blue: #9b5f3e;
-  --teal: #c6a36a;
-  --paper: #f1eadf;
+  --blue: #a66343;
+  --teal: #a66343;
+  --paper: #f5efe5;
   --ink: #20231f;
   --muted: #67645e;
-  --line: #d8cebf;
+  --line: #d8d0c5;
   --white: #fffdf8;
   --danger: #7a3c36;
 }
@@ -62,7 +62,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(198, 163, 106, 0.35);
+  background: rgba(166, 99, 67, 0.24);
   color: var(--ink);
 }
 
@@ -134,8 +134,8 @@ textarea {
 }
 
 .btn--primary:hover {
-  border-color: #7e482f;
-  background: #7e482f;
+  border-color: #854a31;
+  background: #854a31;
 }
 
 .btn--outline {
