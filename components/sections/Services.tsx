@@ -43,7 +43,7 @@ export function Services() {
             <Reveal key={service.title}>
               <a
                 href={service.href}
-                className="group grid gap-4 border-b border-line py-6 sm:grid-cols-[70px_1fr_auto] sm:items-center"
+                className="group relative grid min-w-0 grid-cols-[36px_minmax(0,1fr)] gap-3 border-b border-line py-5 pr-8 sm:grid-cols-[70px_minmax(0,1fr)_auto] sm:items-center sm:gap-4 sm:py-6 sm:pr-0"
               >
                 <span className="text-[10px] font-bold tracking-[.16em] text-brandBlue">
                   0{index + 1}
@@ -56,7 +56,7 @@ export function Services() {
                     {service.description}
                   </p>
                 </div>
-                <span className="text-sm font-semibold text-navy transition-transform group-hover:translate-x-1">
+                <span className="absolute right-0 top-6 text-sm font-semibold text-navy transition-transform group-hover:translate-x-1 sm:static">
                   →
                 </span>
               </a>
