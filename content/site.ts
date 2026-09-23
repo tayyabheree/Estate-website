@@ -61,9 +61,9 @@ export const site = {
         "Ask our team about eligibility and the current terms for this seller offer."
     },
     {
-      title: "Reduced leasing fee for new managements",
+      title: "Leasing fee 4% + GST for the first 12 months",
       terms:
-        "Ask about the current 4% + GST introductory leasing offer for eligible new appointments."
+        "Available for eligible new management appointments. Speak with the team for current offer terms."
     }
   ]
 } as const;
