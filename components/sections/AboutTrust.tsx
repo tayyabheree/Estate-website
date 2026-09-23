@@ -42,19 +42,15 @@ export function AboutTrust() {
           <Reveal className="lg:col-span-6">
             <SectionHeading
               label="About WoodRidge"
-              title="Local property advice, without the hand-offs."
+              title="Property advice from people who stay involved."
             />
 
             <div className="entry-content mt-8 max-w-xl text-muted">
               <p>
-                WoodRidge Real Estate is a full-service agency focused on Melbourne&apos;s
-                west. Homeowners, investors, tenants and first-home buyers can deal with
-                one team across sales, leasing, management, new homes and investment.
+                WoodRidge is based in Truganina and works across Melbourne&apos;s west. Navin Chugh and Yogesh Bhatia remain involved from the first conversation through to the practical details that follow.
               </p>
               <p>
-                The approach is simple: clear advice, professional presentation and
-                direct communication. When a project needs more than an agency service,
-                WoodRidge can also coordinate finance, construction and ongoing maintenance.
+                For clients, that means fewer hand-offs. Sales, leasing, management, new homes and investment can sit with the same team, with finance, construction and maintenance coordinated when the job calls for it.
               </p>
             </div>
 
