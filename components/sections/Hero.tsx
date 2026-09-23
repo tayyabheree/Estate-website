@@ -56,7 +56,7 @@ export function Hero() {
 
       <div className="container relative z-10 pb-12 pt-[132px] sm:py-24">
         <div className="hero-copy max-w-[760px]">
-          <p className="mb-4 text-[10px] font-bold uppercase tracking-[.2em] text-[#e4c58d] sm:text-[11px]">
+          <p className="mb-4 text-[10px] font-bold uppercase tracking-[.2em] text-brandBlue sm:text-[11px]">
             Melbourne&apos;s west
           </p>
 
@@ -88,7 +88,7 @@ export function Hero() {
 
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/30 pt-4 text-sm text-white/75 sm:mt-7 sm:pt-5">
             <span className="font-semibold text-white">Direct principal service</span>
-            <span className="hidden h-1 w-1 bg-[#e4c58d] sm:block" />
+            <span className="hidden h-1 w-1 bg-brandBlue sm:block" />
             <a
               href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
               className="font-bold text-white hover:underline"
@@ -108,7 +108,7 @@ export function Hero() {
                 className={
                   "h-1 transition-all " +
                   (index === active
-                    ? "w-10 bg-[#e4c58d]"
+                    ? "w-10 bg-brandBlue"
                     : "w-6 bg-white/45 hover:bg-white/75")
                 }
               />
