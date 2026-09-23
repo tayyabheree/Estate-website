@@ -4,13 +4,13 @@ import { site } from "@/content/site";
 export function SiteFooter() {
   return (
     <footer id="contact" className="site-footer bg-[#202a25] pb-24 text-white md:pb-0">
-      <div className="container border-b border-white/15 py-14 sm:py-16">
+      <div className="container border-b border-white/15 py-11 sm:py-14">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="text-[10px] font-bold uppercase tracking-[.18em] text-brandBlue">
               WoodRidge Real Estate
             </p>
-            <h2 className="mt-3 max-w-[720px] font-serif text-[clamp(2.1rem,4vw,3.7rem)] leading-[1.12] tracking-[-.03em]">
+            <h2 className="mt-3 max-w-[720px] font-serif text-[clamp(1.85rem,3vw,2.8rem)] leading-[1.12] tracking-[-.03em]">
               Talk to the people who will actually handle the property.
             </h2>
           </div>
