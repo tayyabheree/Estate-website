@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Phone } from "lucide-react";
 import { site } from "@/content/site";
@@ -58,7 +59,7 @@ export function MobileMenu({
 
   return (
     <div
-      className="fixed inset-0 z-[80] bg-navy/45 md:hidden"
+      className="fixed inset-0 z-[80] bg-[rgba(16,40,79,.55)] md:hidden"
       role="presentation"
       onMouseDown={(event) => {
         if (event.currentTarget === event.target) onClose();
@@ -69,14 +70,21 @@ export function MobileMenu({
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className="ml-auto flex h-full w-[88%] max-w-sm flex-col overflow-y-auto bg-[#fffaf2] px-5 pb-[calc(20px+env(safe-area-inset-bottom))] pt-[calc(20px+env(safe-area-inset-top))] text-navy"
+        className="ml-auto flex h-full w-[90%] max-w-sm flex-col overflow-y-auto bg-white px-5 pb-[calc(20px+env(safe-area-inset-bottom))] pt-[calc(20px+env(safe-area-inset-top))] text-navy shadow-2xl"
       >
+        <div className="brand-line -mx-5 -mt-5 mb-4" />
         <div className="flex items-center justify-between border-b border-line pb-4">
-          <span className="font-serif text-2xl">WoodRidge</span>
+          <Image
+            src="/images/woodridge-real-estate-logo-hd.png"
+            alt="WoodRidge Real Estate"
+            width={3072}
+            height={1512}
+            className="h-[48px] w-auto object-contain"
+          />
           <button
             type="button"
             onClick={onClose}
-            className="min-h-11 min-w-11 text-2xl"
+            className="min-h-11 min-w-11 text-3xl font-light text-navy"
             aria-label="Close menu"
           >
             ×
@@ -84,25 +92,33 @@ export function MobileMenu({
         </div>
 
         <nav className="mt-4 flex flex-col">
-          {site.nav.map(([label, href]) => (
+          {site.nav.map(([label, href], index) => (
             <a
               key={href}
               href={href}
               onClick={onClose}
-              className="border-b border-line py-3.5 font-medium"
+              className="group flex items-center justify-between border-b border-line py-4 font-semibold"
             >
-              {label}
+              <span>{label}</span>
+              <span className="text-xs font-extrabold tracking-widest text-teal">
+                0{index + 1}
+              </span>
             </a>
           ))}
         </nav>
 
-        <a
-          href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
-          className="btn btn--primary mt-6 sm:mt-auto"
-        >
-          <Phone size={17} />
-          Call {site.contact.phones[0]}
-        </a>
+        <div className="mt-auto pt-7">
+          <p className="mb-3 text-xs leading-relaxed text-muted">
+            Speak directly with the WoodRidge team about sales, leasing or management.
+          </p>
+          <a
+            href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
+            className="btn btn--primary w-full"
+          >
+            <Phone size={17} />
+            Call {site.contact.phones[0]}
+          </a>
+        </div>
       </div>
     </div>
   );
