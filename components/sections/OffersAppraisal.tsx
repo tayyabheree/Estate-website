@@ -71,7 +71,7 @@ export function OffersAppraisal() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/68 to-navy/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(16,40,79,.90)] via-[rgba(16,40,79,.68)] to-[rgba(16,40,79,.20)]" />
 
           <div className="container relative z-10 flex min-h-[330px] items-center py-12 text-white sm:min-h-[390px] sm:py-16">
             <div className="max-w-[760px]">
@@ -81,7 +81,7 @@ export function OffersAppraisal() {
               <h2 className="mt-4 font-serif text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.09] tracking-[-.04em]">
                 Better property decisions start with a clear view of value.
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/68 sm:text-base">
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/[.68] sm:text-base">
                 Get a no-obligation appraisal and speak directly with the WoodRidge principals.
               </p>
               <a
