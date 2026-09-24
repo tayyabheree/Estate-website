@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { site } from "@/content/site";
 import { MobileMenu } from "./MobileMenu";
@@ -30,15 +31,22 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="site-header fixed inset-x-0 top-0 z-50 h-[72px] border-b border-white/10 bg-navy text-white md:h-[78px]">
+      <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-white/95 text-navy shadow-[0_8px_28px_rgba(16,40,79,.06)] backdrop-blur-xl">
+        <div className="brand-line absolute inset-x-0 top-0" />
         <div className="container flex h-full items-center justify-between">
-          <a href="#home" className="min-w-0 leading-none" aria-label="WoodRidge Real Estate home">
-            <span className="block font-serif text-[24px] tracking-[-.025em] sm:text-[26px]">
-              WoodRidge
-            </span>
-            <span className="mt-1 block text-[8px] font-bold tracking-[.31em] text-white/65">
-              REAL ESTATE
-            </span>
+          <a
+            href="#home"
+            className="flex min-w-0 items-center"
+            aria-label="WoodRidge Real Estate home"
+          >
+            <Image
+              src="/images/woodridge-real-estate-logo-hd.png"
+              alt="WoodRidge Real Estate"
+              width={3072}
+              height={1512}
+              priority
+              className="h-[48px] w-auto object-contain sm:h-[52px]"
+            />
           </a>
 
           <nav aria-label="Primary navigation" className="hidden items-center gap-7 lg:flex">
@@ -47,9 +55,9 @@ export function SiteHeader() {
                 key={href}
                 href={href}
                 className={
-                  "relative py-7 text-[11px] font-bold uppercase tracking-[.11em] text-white/80 transition-colors hover:text-white " +
+                  "relative py-7 text-[10px] font-extrabold uppercase tracking-[.14em] text-navy/70 transition-colors hover:text-navy " +
                   (active === href
-                    ? "after:absolute after:bottom-5 after:left-0 after:h-px after:w-full after:bg-brandBlue"
+                    ? "after:absolute after:bottom-[20px] after:left-0 after:h-[3px] after:w-full after:rounded-full after:bg-teal"
                     : "")
                 }
               >
@@ -65,13 +73,13 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
-            className="flex min-h-11 min-w-11 flex-col items-end justify-center gap-1.5 lg:hidden"
+            className="flex min-h-11 min-w-11 flex-col items-end justify-center gap-1.5 text-navy lg:hidden"
             aria-label="Open menu"
             aria-expanded={menuOpen}
           >
-            <span className="h-px w-7 bg-current" />
-            <span className="h-px w-5 bg-current" />
-            <span className="h-px w-7 bg-current" />
+            <span className="h-[2px] w-7 rounded-full bg-current" />
+            <span className="h-[2px] w-5 rounded-full bg-teal" />
+            <span className="h-[2px] w-7 rounded-full bg-current" />
           </button>
         </div>
       </header>
