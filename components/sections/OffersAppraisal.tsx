@@ -69,7 +69,7 @@ export function OffersAppraisal() {
             alt="Melbourne residential street at twilight"
             fill
             sizes="100vw"
-            className="object-cover opacity-35"
+            className="object-cover opacity-40"
           />
 
           <div className="container relative z-10 flex min-h-[330px] items-center py-12 text-white sm:min-h-[390px] sm:py-16">
