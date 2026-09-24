@@ -5,7 +5,7 @@ export function StickyMobileBar() {
   return (
     <div className="mobile-action-bar fixed inset-x-0 bottom-0 z-[70] grid grid-cols-2 gap-2 border-t border-line bg-white/95 p-2 shadow-[0_-10px_30px_rgba(16,40,79,.08)] backdrop-blur md:hidden">
       <a
-        className="btn btn--outline min-h-[48px] border-navy/25 px-3 text-[10px] tracking-[.08em] text-navy"
+        className="btn btn--outline min-h-[48px] border-[rgba(16,40,79,.25)] px-3 text-[10px] tracking-[.08em] text-navy"
         href={"tel:" + site.contact.phones[0].replace(/\s/g, "")}
       >
         <Phone size={16} />
