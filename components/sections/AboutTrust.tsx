@@ -53,7 +53,7 @@ export function AboutTrust() {
               <div className="mt-8 grid gap-x-6 gap-y-4 sm:grid-cols-2">
                 {site.trustPoints.map((point) => (
                   <div key={point} className="flex min-w-0 gap-3 border-t border-line pt-4">
-                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal/10 text-teal">
+                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[rgba(12,167,156,.10)] text-teal">
                       <Check size={15} strokeWidth={2.4} />
                     </span>
                     <span className="text-sm font-semibold leading-snug text-navy">{point}</span>
