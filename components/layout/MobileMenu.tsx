@@ -59,7 +59,7 @@ export function MobileMenu({
 
   return (
     <div
-      className="fixed inset-0 z-[80] bg-navy/55 md:hidden"
+      className="fixed inset-0 z-[80] bg-[rgba(16,40,79,.55)] md:hidden"
       role="presentation"
       onMouseDown={(event) => {
         if (event.currentTarget === event.target) onClose();
