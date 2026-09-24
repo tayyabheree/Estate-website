@@ -1,3 +1,4 @@
+// WoodRidge production refresh: latest flat brand redesign
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyMobileBar } from "@/components/layout/StickyMobileBar";
