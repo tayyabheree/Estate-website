@@ -31,7 +31,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-white/95 text-navy shadow-[0_8px_28px_rgba(16,40,79,.06)] backdrop-blur-xl">
+      <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-line bg-white/95 text-navy shadow-[0_8px_28px_rgba(16,40,79,.06)] backdrop-blur-xl">
         <div className="brand-line absolute inset-x-0 top-0" />
         <div className="container flex h-full items-center justify-between">
           <a
@@ -55,7 +55,7 @@ export function SiteHeader() {
                 key={href}
                 href={href}
                 className={
-                  "relative py-7 text-[10px] font-extrabold uppercase tracking-[.14em] text-navy/70 transition-colors hover:text-navy " +
+                  "relative py-7 text-[10px] font-extrabold uppercase tracking-[.14em] text-[rgba(16,40,79,.70)] transition-colors hover:text-navy " +
                   (active === href
                     ? "after:absolute after:bottom-[20px] after:left-0 after:h-[3px] after:w-full after:rounded-full after:bg-teal"
                     : "")
