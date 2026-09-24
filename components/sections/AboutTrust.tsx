@@ -14,7 +14,7 @@ export function AboutTrust() {
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="order-2 lg:order-1 lg:col-span-6">
               <div className="relative">
-                <div className="relative aspect-[5/4] overflow-hidden bg-paper">
+                <div className="relative aspect-[5/4] overflow-hidden border border-line bg-paper">
                   <Image
                     src="/images/service-invest.jpg"
                     alt="Residential neighbourhood in Melbourne's west"
@@ -26,21 +26,23 @@ export function AboutTrust() {
                   />
                 </div>
 
-                <div className="absolute -bottom-6 right-0 w-[72%] border-l-4 border-brandBlue bg-white p-5 shadow-[0_20px_55px_rgba(16,40,79,.12)] sm:right-6 sm:w-[62%]">
-                  <p className="text-[9px] font-extrabold uppercase tracking-[.18em] text-teal">
-                    Principal-led service
-                  </p>
-                  <p className="mt-2 font-serif text-lg leading-snug text-navy">
-                    Navin Chugh &amp; Yogesh Bhatia
-                  </p>
-                  <p className="mt-1 text-xs text-muted">Truganina · Melbourne&apos;s west</p>
+                <div className="border-x border-b border-line bg-paper p-5 sm:grid sm:grid-cols-[1fr_auto] sm:items-end sm:gap-5">
+                  <div>
+                    <p className="text-[9px] font-bold uppercase tracking-[.17em] text-teal">
+                      Principal-led service
+                    </p>
+                    <p className="mt-2 font-serif text-lg font-bold leading-snug text-navy">
+                      Navin Chugh &amp; Yogesh Bhatia
+                    </p>
+                  </div>
+                  <p className="mt-2 text-xs text-muted sm:mt-0">Truganina · Melbourne&apos;s west</p>
                 </div>
               </div>
             </div>
 
             <div className="order-1 lg:order-2 lg:col-span-6">
               <p className="section-label">Why WoodRidge</p>
-              <h2 className="font-serif text-[2rem] leading-[1.14] tracking-[-.035em] text-navy sm:text-[2.65rem]">
+              <h2 className="font-serif text-[2rem] font-bold leading-[1.18] tracking-[-.03em] text-navy sm:text-[2.6rem]">
                 A smaller chain of communication. A higher level of ownership.
               </h2>
 
@@ -53,7 +55,7 @@ export function AboutTrust() {
               <div className="mt-8 grid gap-x-6 gap-y-4 sm:grid-cols-2">
                 {site.trustPoints.map((point) => (
                   <div key={point} className="flex min-w-0 gap-3 border-t border-line pt-4">
-                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[rgba(12,167,156,.10)] text-teal">
+                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center border border-teal bg-white text-teal">
                       <Check size={15} strokeWidth={2.4} />
                     </span>
                     <span className="text-sm font-semibold leading-snug text-navy">{point}</span>

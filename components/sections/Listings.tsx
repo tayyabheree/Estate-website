@@ -13,7 +13,7 @@ const imageById: Record<string, string> = {
 
 function Status({ status }: { status: string }) {
   return (
-    <span className="inline-flex rounded-full border border-white/30 bg-[rgba(16,40,79,.45)] px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[.14em] text-white backdrop-blur">
+    <span className="inline-flex border border-white bg-brandBlue px-3 py-1.5 text-[9px] font-bold uppercase tracking-[.13em] text-white">
       {status}
     </span>
   );
@@ -23,20 +23,17 @@ export function Listings() {
   const properties = getPropertyActivity();
 
   return (
-    <section id="properties" className="section relative overflow-hidden bg-navy text-white">
-      <div className="brand-grid-bg absolute inset-0 opacity-60" />
-      <div className="absolute -right-32 top-28 h-80 w-80 rounded-full bg-[rgba(12,167,156,.10)] blur-3xl" />
-
-      <div className="container relative">
+    <section id="properties" className="section bg-brandBlue text-white">
+      <div className="container">
         <Reveal>
-          <div className="grid gap-6 border-b border-white/[.12] pb-9 lg:grid-cols-12 lg:items-end">
+          <div className="grid gap-6 border-b-4 border-teal pb-9 lg:grid-cols-12 lg:items-end">
             <div className="min-w-0 lg:col-span-7">
               <p className="section-label section-label--light">Current &amp; recent</p>
-              <h2 className="max-w-[720px] font-serif text-[2rem] leading-[1.14] tracking-[-.035em] text-white sm:text-[2.75rem]">
+              <h2 className="max-w-[720px] font-serif text-[2rem] font-bold leading-[1.16] tracking-[-.03em] text-white sm:text-[2.7rem]">
                 A live view of the markets we work in.
               </h2>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-white/60 lg:col-span-5 lg:justify-self-end">
+            <p className="max-w-md text-sm leading-relaxed text-white/80 lg:col-span-5 lg:justify-self-end">
               Selected WoodRidge sales and leasing activity across Melbourne&apos;s western suburbs.
             </p>
           </div>
@@ -45,20 +42,19 @@ export function Listings() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {properties.map((property, index) => (
             <Reveal key={property.id}>
-              <article className="group h-full overflow-hidden bg-white text-ink shadow-[0_18px_45px_rgba(4,18,40,.18)]">
-                <div className="relative aspect-[16/11] overflow-hidden">
+              <article className="group h-full overflow-hidden border border-white/20 bg-white text-ink">
+                <div className="relative aspect-[16/11] overflow-hidden bg-navy">
                   <Image
                     src={imageById[property.id] ?? "/images/service-sales.jpg"}
                     alt=""
                     fill
                     sizes="(max-width:640px) 100vw,50vw"
-                    className="object-cover transition duration-700 group-hover:scale-[1.035]"
+                    className="object-cover transition duration-500 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,40,79,.35)] via-transparent to-transparent" />
                   <div className="absolute left-4 top-4">
                     <Status status={property.status} />
                   </div>
-                  <span className="absolute bottom-4 right-4 text-[10px] font-extrabold tracking-[.18em] text-white/80">
+                  <span className="absolute bottom-4 right-4 bg-navy px-2 py-1 text-[10px] font-bold tracking-[.16em] text-white">
                     0{index + 1}
                   </span>
                 </div>
@@ -66,10 +62,10 @@ export function Listings() {
                 <div className="border-t-4 border-teal p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
-                      <p className="text-[9px] font-extrabold uppercase tracking-[.17em] text-brandBlue">
+                      <p className="text-[9px] font-bold uppercase tracking-[.16em] text-brandBlue">
                         {property.type}
                       </p>
-                      <h3 className="mt-2 font-serif text-[1.45rem] leading-tight tracking-[-.02em] text-navy sm:text-[1.65rem]">
+                      <h3 className="mt-2 font-serif text-[1.4rem] font-bold leading-tight tracking-[-.02em] text-navy sm:text-[1.6rem]">
                         {property.address}
                       </h3>
                       <p className="mt-1 text-sm text-muted">{property.suburb}</p>
@@ -100,7 +96,7 @@ export function Listings() {
                     </div>
                   )}
 
-                  <p className="mt-5 font-serif text-xl text-navy">{property.price}</p>
+                  <p className="mt-5 font-serif text-xl font-bold text-navy">{property.price}</p>
                 </div>
               </article>
             </Reveal>
@@ -111,7 +107,7 @@ export function Listings() {
           <Button
             href="#contact"
             variant="outline"
-            className="border-white/40 text-white hover:border-white hover:bg-white hover:text-navy"
+            className="border-white text-white hover:border-navy hover:bg-navy hover:text-white"
           >
             Discuss Your Property Search
           </Button>

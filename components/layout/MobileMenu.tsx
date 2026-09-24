@@ -70,7 +70,7 @@ export function MobileMenu({
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className="ml-auto flex h-full w-[90%] max-w-sm flex-col overflow-y-auto bg-white px-5 pb-[calc(20px+env(safe-area-inset-bottom))] pt-[calc(20px+env(safe-area-inset-top))] text-navy shadow-2xl"
+        className="ml-auto flex h-full w-[90%] max-w-sm flex-col overflow-y-auto border-l border-navy bg-white px-5 pb-[calc(20px+env(safe-area-inset-bottom))] pt-[calc(20px+env(safe-area-inset-top))] text-navy"
       >
         <div className="brand-line -mx-5 -mt-5 mb-4" />
         <div className="flex items-center justify-between border-b border-line pb-4">
@@ -100,14 +100,14 @@ export function MobileMenu({
               className="group flex items-center justify-between border-b border-line py-4 font-semibold"
             >
               <span>{label}</span>
-              <span className="text-xs font-extrabold tracking-widest text-teal">
+              <span className="text-xs font-bold tracking-widest text-brandBlue">
                 0{index + 1}
               </span>
             </a>
           ))}
         </nav>
 
-        <div className="mt-auto pt-7">
+        <div className="mt-auto border-t border-line pt-7">
           <p className="mb-3 text-xs leading-relaxed text-muted">
             Speak directly with the WoodRidge team about sales, leasing or management.
           </p>

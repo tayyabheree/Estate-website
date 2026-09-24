@@ -63,31 +63,27 @@ export function OffersAppraisal() {
   return (
     <section id="offers" className="bg-white">
       <Reveal>
-        <div className="relative min-h-[330px] overflow-hidden sm:min-h-[390px]">
+        <div className="relative min-h-[330px] overflow-hidden bg-navy sm:min-h-[390px]">
           <Image
             src="/images/appraisal-bg.jpg"
             alt="Melbourne residential street at twilight"
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(16,40,79,.90)] via-[rgba(16,40,79,.68)] to-[rgba(16,40,79,.20)]" />
 
           <div className="container relative z-10 flex min-h-[330px] items-center py-12 text-white sm:min-h-[390px] sm:py-16">
-            <div className="max-w-[760px]">
-              <p className="text-[10px] font-extrabold uppercase tracking-[.19em] text-[#62ddd3]">
+            <div className="max-w-[760px] border-l-4 border-teal pl-6">
+              <p className="text-[10px] font-bold uppercase tracking-[.18em] text-white">
                 Free property appraisal
               </p>
-              <h2 className="mt-4 font-serif text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.09] tracking-[-.04em]">
+              <h2 className="mt-4 font-serif text-[clamp(2rem,3.5vw,3.2rem)] font-bold leading-[1.14] tracking-[-.03em]">
                 Better property decisions start with a clear view of value.
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/[.68] sm:text-base">
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
                 Get a no-obligation appraisal and speak directly with the WoodRidge principals.
               </p>
-              <a
-                href="#appraisal"
-                className="btn btn--primary mt-7"
-              >
+              <a href="#appraisal" className="btn btn--primary mt-7">
                 Request an appraisal
                 <ArrowUpRight size={15} />
               </a>
@@ -100,21 +96,21 @@ export function OffersAppraisal() {
         <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <p className="section-label">Current offers</p>
-            <h2 className="font-serif text-[clamp(1.95rem,2.9vw,2.7rem)] leading-[1.13] tracking-[-.035em] text-navy">
-              Useful incentives, without burying the important details.
+            <h2 className="font-serif text-[clamp(1.95rem,2.9vw,2.65rem)] font-bold leading-[1.16] tracking-[-.03em] text-navy">
+              Useful incentives, with the important details kept clear.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-muted">
               Ask the team about current seller and property-management offers when you enquire.
             </p>
 
-            <div className="mt-8 border-t border-line">
+            <div className="mt-8 border-t-4 border-brandBlue">
               {site.offers.map((offer, index) => (
-                <article key={offer.title} className="grid grid-cols-[44px_1fr] gap-4 border-b border-line py-5">
-                  <span className="pt-1 text-[10px] font-extrabold tracking-[.16em] text-brandBlue">
+                <article key={offer.title} className="grid grid-cols-[44px_1fr] gap-4 border-b border-line bg-white px-4 py-5">
+                  <span className="pt-1 text-[10px] font-bold tracking-[.15em] text-brandBlue">
                     0{index + 1}
                   </span>
                   <div>
-                    <h3 className="font-serif text-xl leading-tight text-navy">
+                    <h3 className="font-serif text-xl font-bold leading-tight text-navy">
                       {offer.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -131,19 +127,16 @@ export function OffersAppraisal() {
               id="appraisal"
               className="soft-panel min-w-0 border-t-4 border-t-teal bg-white p-5 sm:p-9"
             >
-              <div className="flex items-start justify-between gap-5">
-                <div>
-                  <p className="text-[10px] font-extrabold uppercase tracking-[.17em] text-brandBlue">
-                    No obligation
-                  </p>
-                  <h2 className="mt-2 font-serif text-3xl leading-tight tracking-[-.03em] text-navy">
-                    Book a free appraisal
-                  </h2>
-                </div>
-                <span className="hidden h-12 w-12 rounded-full bg-gradient-to-br from-teal to-brandBlue sm:block" />
+              <div className="border-b border-line pb-5">
+                <p className="text-[10px] font-bold uppercase tracking-[.16em] text-brandBlue">
+                  No obligation
+                </p>
+                <h2 className="mt-2 font-serif text-3xl font-bold leading-tight tracking-[-.025em] text-navy">
+                  Book a free appraisal
+                </h2>
               </div>
 
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
                 Tell us the property and what you are considering. The form prepares an email
                 directly to Navin and Yogesh.
               </p>

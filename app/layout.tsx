@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
+import { Merriweather, Montserrat } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-const sourceSans = Source_Sans_3({
+const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-source-sans"
+  variable: "--font-body"
 });
 
-const libreBaskerville = Libre_Baskerville({
+const merriweather = Merriweather({
   weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-libre-baskerville"
+  variable: "--font-heading"
 });
 
 export const metadata: Metadata = {
@@ -67,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU">
-      <body className={sourceSans.variable + " " + libreBaskerville.variable}>
+      <body className={montserrat.variable + " " + merriweather.variable}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

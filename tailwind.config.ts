@@ -19,11 +19,11 @@ const config: Config = {
         line: "var(--line)"
       },
       fontFamily: {
-        sans: ["var(--font-source-sans)", "sans-serif"],
-        serif: ["var(--font-libre-baskerville)", "serif"]
+        sans: ["var(--font-body)", "sans-serif"],
+        serif: ["var(--font-heading)", "serif"]
       },
       maxWidth: {
-        site: "1200px"
+        site: "1240px"
       }
     }
   },
