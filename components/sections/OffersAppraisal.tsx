@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -62,7 +63,7 @@ export function OffersAppraisal() {
   return (
     <section id="offers" className="bg-white">
       <Reveal>
-        <div className="relative min-h-[300px] overflow-hidden sm:min-h-[360px]">
+        <div className="relative min-h-[330px] overflow-hidden sm:min-h-[390px]">
           <Image
             src="/images/appraisal-bg.jpg"
             alt="Melbourne residential street at twilight"
@@ -70,21 +71,25 @@ export function OffersAppraisal() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/68 to-navy/20" />
 
-          <div className="container relative z-10 flex min-h-[300px] items-center py-12 text-white sm:min-h-[360px] sm:py-16">
+          <div className="container relative z-10 flex min-h-[330px] items-center py-12 text-white sm:min-h-[390px] sm:py-16">
             <div className="max-w-[760px]">
-              <p className="text-[10px] font-bold uppercase tracking-[.18em] text-white/75">
+              <p className="text-[10px] font-extrabold uppercase tracking-[.19em] text-[#62ddd3]">
                 Free property appraisal
               </p>
-              <h2 className="mt-4 font-serif text-[clamp(1.9rem,3.2vw,3rem)] leading-[1.12] tracking-[-.03em]">
-                Know where the property stands before deciding what comes next.
+              <h2 className="mt-4 font-serif text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.09] tracking-[-.04em]">
+                Better property decisions start with a clear view of value.
               </h2>
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/68 sm:text-base">
+                Get a no-obligation appraisal and speak directly with the WoodRidge principals.
+              </p>
               <a
                 href="#appraisal"
-                className="mt-7 inline-flex border border-white px-5 py-3 text-xs font-bold uppercase tracking-[.1em] transition-colors hover:bg-white hover:text-ink"
+                className="btn btn--primary mt-7"
               >
                 Request an appraisal
+                <ArrowUpRight size={15} />
               </a>
             </div>
           </div>
@@ -95,36 +100,50 @@ export function OffersAppraisal() {
         <div className="container grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <p className="section-label">Current offers</p>
-            <h2 className="font-serif text-[clamp(1.85rem,2.8vw,2.6rem)] leading-[1.14] tracking-[-.03em] text-navy">
-              Selling or leasing with WoodRidge?
+            <h2 className="font-serif text-[clamp(1.95rem,2.9vw,2.7rem)] leading-[1.13] tracking-[-.035em] text-navy">
+              Useful incentives, without burying the important details.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-muted">
-              Ask the team about the current seller and property-management offers when you enquire.
+              Ask the team about current seller and property-management offers when you enquire.
             </p>
 
             <div className="mt-8 border-t border-line">
-              {site.offers.map((offer) => (
-                <article key={offer.title} className="border-b border-line py-5">
-                  <h3 className="font-serif text-xl leading-tight text-navy">
-                    {offer.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {offer.terms}
-                  </p>
+              {site.offers.map((offer, index) => (
+                <article key={offer.title} className="grid grid-cols-[44px_1fr] gap-4 border-b border-line py-5">
+                  <span className="pt-1 text-[10px] font-extrabold tracking-[.16em] text-brandBlue">
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-xl leading-tight text-navy">
+                      {offer.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {offer.terms}
+                    </p>
+                  </div>
                 </article>
               ))}
             </div>
           </Reveal>
 
           <Reveal className="lg:col-span-7">
-            <div id="appraisal" className="min-w-0 border border-line bg-white p-5 sm:p-9">
-              <p className="text-[10px] font-bold uppercase tracking-[.16em] text-brandBlue">
-                No obligation
-              </p>
-              <h2 className="mt-2 font-serif text-3xl leading-tight text-navy">
-                Book a free appraisal
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
+            <div
+              id="appraisal"
+              className="soft-panel min-w-0 border-t-4 border-t-teal bg-white p-5 sm:p-9"
+            >
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <p className="text-[10px] font-extrabold uppercase tracking-[.17em] text-brandBlue">
+                    No obligation
+                  </p>
+                  <h2 className="mt-2 font-serif text-3xl leading-tight tracking-[-.03em] text-navy">
+                    Book a free appraisal
+                  </h2>
+                </div>
+                <span className="hidden h-12 w-12 rounded-full bg-gradient-to-br from-teal to-brandBlue sm:block" />
+              </div>
+
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
                 Tell us the property and what you are considering. The form prepares an email
                 directly to Navin and Yogesh.
               </p>
@@ -136,10 +155,10 @@ export function OffersAppraisal() {
                 <FormField label="Suburb / address" id="suburb" register={register("suburb")} error={errors.suburb} />
 
                 <label className="block sm:col-span-2">
-                  <span className="mb-2 block text-sm font-bold">I&apos;m interested in</span>
+                  <span className="mb-2 block text-sm font-bold text-navy">I&apos;m interested in</span>
                   <select
                     {...register("interest")}
-                    className="min-h-12 w-full border border-line bg-white px-4"
+                    className="min-h-12 w-full border border-line bg-white px-4 text-ink focus:border-teal"
                   >
                     <option>Sell</option>
                     <option>Lease</option>
@@ -149,12 +168,16 @@ export function OffersAppraisal() {
                 </label>
 
                 <label className="block sm:col-span-2">
-                  <span className="mb-2 block text-sm font-bold">
+                  <span className="mb-2 block text-sm font-bold text-navy">
                     Message <span className="font-normal text-muted">(optional)</span>
                   </span>
-                  <textarea {...register("message")} rows={4} className="w-full border border-line p-4" />
+                  <textarea
+                    {...register("message")}
+                    rows={4}
+                    className="w-full border border-line bg-white p-4 text-ink focus:border-teal"
+                  />
                   {errors.message && (
-                    <span className="mt-1 block text-sm text-[#7A3C36]">
+                    <span className="mt-1 block text-sm text-[#9A3F45]">
                       {errors.message.message}
                     </span>
                   )}
@@ -163,6 +186,7 @@ export function OffersAppraisal() {
                 <div className="sm:col-span-2">
                   <button className="btn btn--primary w-full sm:w-auto" type="submit">
                     Request My Appraisal
+                    <ArrowUpRight size={15} />
                   </button>
                   {prepared && (
                     <p role="status" className="mt-4 text-sm font-bold text-navy">
