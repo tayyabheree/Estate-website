@@ -13,7 +13,7 @@ const imageById: Record<string, string> = {
 
 function Status({ status }: { status: string }) {
   return (
-    <span className="inline-flex rounded-full border border-white/30 bg-navy/45 px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[.14em] text-white backdrop-blur">
+    <span className="inline-flex rounded-full border border-white/30 bg-[rgba(16,40,79,.45)] px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[.14em] text-white backdrop-blur">
       {status}
     </span>
   );
@@ -25,11 +25,11 @@ export function Listings() {
   return (
     <section id="properties" className="section relative overflow-hidden bg-navy text-white">
       <div className="brand-grid-bg absolute inset-0 opacity-60" />
-      <div className="absolute -right-32 top-28 h-80 w-80 rounded-full bg-teal/10 blur-3xl" />
+      <div className="absolute -right-32 top-28 h-80 w-80 rounded-full bg-[rgba(12,167,156,.10)] blur-3xl" />
 
       <div className="container relative">
         <Reveal>
-          <div className="grid gap-6 border-b border-white/12 pb-9 lg:grid-cols-12 lg:items-end">
+          <div className="grid gap-6 border-b border-white/[.12] pb-9 lg:grid-cols-12 lg:items-end">
             <div className="min-w-0 lg:col-span-7">
               <p className="section-label section-label--light">Current &amp; recent</p>
               <h2 className="max-w-[720px] font-serif text-[2rem] leading-[1.14] tracking-[-.035em] text-white sm:text-[2.75rem]">
@@ -54,7 +54,7 @@ export function Listings() {
                     sizes="(max-width:640px) 100vw,50vw"
                     className="object-cover transition duration-700 group-hover:scale-[1.035]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,40,79,.35)] via-transparent to-transparent" />
                   <div className="absolute left-4 top-4">
                     <Status status={property.status} />
                   </div>
