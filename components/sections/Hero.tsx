@@ -42,7 +42,7 @@ export function Hero() {
       <div className="container relative grid lg:grid-cols-12">
         <div className="relative z-10 flex min-h-[560px] items-center py-14 sm:min-h-[610px] lg:col-span-6 lg:min-h-[680px] lg:py-20 lg:pr-10">
           <div className="max-w-[650px]">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[.06] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[.18em] text-white/78">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/[.15] bg-white/[.06] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[.18em] text-white/[.78]">
               <span className="h-2 w-2 rounded-full bg-teal" />
               Principal-led real estate · Melbourne&apos;s west
             </div>
@@ -51,7 +51,7 @@ export function Hero() {
               Property decisions deserve senior attention.
             </h1>
 
-            <p className="mt-6 max-w-[590px] text-[16px] leading-[1.7] text-white/74 sm:text-[18px]">
+            <p className="mt-6 max-w-[590px] text-[16px] leading-[1.7] text-white/[.74] sm:text-[18px]">
               Work directly with Navin Chugh and Yogesh Bhatia across sales, leasing,
               property management, new homes and investment throughout Melbourne&apos;s west.
             </p>
@@ -63,14 +63,14 @@ export function Hero() {
               </a>
               <a
                 href={tel}
-                className="btn min-h-[54px] border border-white/45 bg-white/[.04] px-7 text-white hover:border-white hover:bg-white hover:text-navy"
+                className="btn min-h-[54px] border border-white/[.45] bg-white/[.04] px-7 text-white hover:border-white hover:bg-white hover:text-navy"
               >
                 <Phone size={16} />
                 {primaryPhone}
               </a>
             </div>
 
-            <div className="mt-10 grid max-w-[560px] grid-cols-3 gap-4 border-t border-white/14 pt-5">
+            <div className="mt-10 grid max-w-[560px] grid-cols-3 gap-4 border-t border-white/[.14] pt-5">
               {[
                 ["Local", "Western suburbs"],
                 ["Direct", "Principal access"],
@@ -125,7 +125,7 @@ export function Hero() {
                 onClick={() => setActive(index)}
                 className={
                   "h-1.5 rounded-full transition-all " +
-                  (index === active ? "w-8 bg-teal" : "w-3 bg-white/65")
+                  (index === active ? "w-8 bg-teal" : "w-3 bg-white/[.65]")
                 }
                 aria-label={"Show hero image " + (index + 1)}
               />
@@ -151,7 +151,7 @@ export function Hero() {
                 <span className="block text-[11px] font-extrabold uppercase tracking-[.16em] text-white">
                   {label}
                 </span>
-                <span className="mt-1 block text-xs text-white/48">{detail}</span>
+                <span className="mt-1 block text-xs text-white/[.48]">{detail}</span>
               </span>
               <ArrowUpRight
                 size={17}
